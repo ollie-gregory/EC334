@@ -1,0 +1,250 @@
+---
+title: "Problem Set 2"
+author: "Oliver Gregory"
+format:
+    revealjs:
+        fontsize: 30px
+        theme: moon
+---
+
+:::{.center}
+# Is a falling labour share and a falling capital share sufficient to conclude that the profit share has increased?
+:::
+
+## How can we measure the profit share?
+
+Profits in the macroeconomy can be represented by this equation:
+
+$$
+\Pi_t = PY_t - W_tL_t - R_tP_t^kK_t
+$$
+
+To see a rising profit share, we need to see that profits as a share of GDP are increasing.
+
+$$
+\begin{split}
+\frac{\Pi_t}{PY_t} &= \frac{PY_t - W_tL_t - R_tP_t^kK_t}{PY_t}\\
+&= 1 - \underbrace{\frac{W_tL_t}{PY_t}}_{\text{Labour Share}} - \underbrace{\frac{R_tP_t^kK_t}{PY_t}}_{\text{Capital Share}}
+\end{split}
+$$
+
+This means that if we only know the labour share and rate of return on capital, $R_t$, we don't have enough information to determine the profit share.
+
+## In the data
+
+Barkai (2020) finds that both the labour share and the capital share have been decreasing in the US since the 1980s.
+
+![](./images/capital_share.png)
+
+Based on this, he reasons that the profit share, and therefore markups have been increasing since then as if we believe that the labour share and capital share have been measured correctly, then the profit share must have increased.
+
+## _Factorless income_ critique
+
+The factorless income critique discussed in Karabarbounis and Neiman (2014) is that the residual income after accounting for the labour share and capital share is not necessarily pure profit and is instead simply _factorless income_.
+
+Karabarbounis and Neiman point to three potential sources of factorless income:
+
+1. Economic profits
+2. Unmeasured capital
+    - Capital such as intellectual property, R&D spending, and other less tangible assets may not be properly accounted for in the capital share calculation.
+3. Deviations of the rental rate of capital from bond returns
+    - The rental rate of capital may not follow the same trends as bond returns which is a core assumption of the capital share calculation.
+
+## Birkai's response
+
+:::{.center}
+Barkai (2020) argues that the factorless income critique is not a valid criticism of his work as,
+
+- The factorless income is not a large enough share of GDP to account for the entire decline in the labour and capital shares.
+- He builds in a lot of robustness checks to his analysis and even when accounting for these wider definitions of capital, the data still exhibits the same trends.
+:::
+
+::::{.columns}
+:::{.column width="40%"}
+However, Karabarbounis and Neiman argue that for factorless income to be attributed to profits, there must be a **strong mechanical** relationship between profits and the real interest rate.
+:::
+:::{.column width="60%"}
+![](./images/profit_share_and_real_interest.png)
+:::
+::::
+
+## Labour share and industry concentration
+
+Barkai's paper finds that there is a negative relationship between market concentration and the labour share. This means that when industries become more concentrated, the labour share falls.
+
+In a model like the Dixit-Stiglitz model where firms have market power based on being monopoly producers of their good, the labour share and market concentration are given by:
+
+::::{.columns}
+:::{.column}
+Market concentration:
+$$
+\frac{C_1}{C_2} = \left(
+    \frac{\text{MC}_1}{\text{MC}_2}
+\right)^{
+    \frac{-\mu}{\mu - 1}
+}
+$$
+:::
+:::{.column}
+Labour share:
+$$
+\begin{split}
+\frac{WL_i}{P_iY_i} &= \frac{WL_i}{A_iL_i}\frac{1}{\mu}\frac{A_i}{W}\\
+&= \frac{1}{\mu}
+\end{split}
+$$
+
+:::::{.callout}
+This uses $P_i = \mu\frac{A_i}{W} \text{ and } Y_i = A_iL_i$.
+:::::
+
+:::
+::::
+
+## Labour share and industry concentration
+
+For market concentration to therefore be increasing, that means that one of two things have to happen in this model:
+
+1. There must be an increase in relative productivity between the two firms.
+2. There must be an decrease in the markup.
+
+$$
+\uparrow \frac{C_1}{C_2} \implies \downarrow \frac{\text{MC}_1}{\text{MC}_2} \text{ or} \downarrow \mu \implies \text{No change or }\uparrow \frac{WL_i}{P_iY_i}
+$$
+
+If the increase in concentration is driven by an increase in relative productivity between the two firms increases, then there will be no effect on the labour share; however, if it is due to a decrease in markup, then the labour share will rise.
+
+This means that this model **cannot** be used to explain Birkai's empirical findings that the labour share falls as concentration increases.
+
+## Average labour share over time
+
+```{python, echo=FALSE}
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+pwt = pd.read_excel("./pwt1001.xlsx", sheet_name="Data")
+
+pwt_labsh_avg = pwt[["year", "labsh"]].groupby(["year"]).mean()
+
+pwt_labsh_avg.reset_index(inplace=True)
+pwt_labsh_avg["5y_ma"] = pwt_labsh_avg["labsh"].rolling(window=5).mean()
+
+# Moon theme color palette
+moon_heading = '#EEE8D5'
+moon_blue = '#012B36'  # Deep blue
+moon_accent = '#2082C3'  # Lighter blue accent
+moon_text = '#94A0A1'  # Grey
+
+
+fig, ax = plt.subplots(figsize=(12, 7), facecolor=moon_blue)  # Deep navy background
+
+ax.set_facecolor(moon_blue)  # Match figure background
+ax.set_xlabel("Year", fontsize=12, color=moon_text)
+ax.set_ylabel("Labour Share", fontsize=12, color=moon_text)
+
+# Plot lines with moon theme colors
+ax.plot(pwt_labsh_avg["year"], pwt_labsh_avg["labsh"], 
+        color=moon_accent, linewidth=3, label="Labour Share")
+ax.plot(pwt_labsh_avg["year"], pwt_labsh_avg["5y_ma"], 
+        color=moon_text, linewidth=1, label="5-year Moving Average")
+
+# Minimal spine styling
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_color(moon_text)
+ax.spines['bottom'].set_color(moon_text)
+
+# Grid styling
+ax.yaxis.grid(True, color=moon_text, alpha=0.3)
+
+# Tick styling
+xticks = np.arange(1950, 2020, 10)
+xticks = np.append(xticks, 2019)
+
+ax.set_xticks(xticks)
+ax.set_xticklabels(xticks, color=moon_text)
+ax.tick_params(colors=moon_text)
+
+# Y-axis percentage formatting
+y_ticks = [f"{round((tick*100),2).astype(int)}%" for tick in ax.get_yticks()]
+ax.set_yticklabels(y_ticks, color=moon_text)
+
+ax.set_xlim(left=pwt_labsh_avg["year"].min(), right=pwt_labsh_avg["year"].max())
+
+ax.legend(facecolor=moon_blue, edgecolor=moon_blue, labelcolor=moon_text)
+```
+
+## Average labour share over time
+
+```{python, echo=FALSE}
+pwt_labsh = pwt[["year", "countrycode", "labsh"]]
+
+median = pwt_labsh.groupby("year")["labsh"].median()
+std_error = pwt_labsh.groupby("year")["labsh"].std()
+
+counts = pwt_labsh.groupby("year")["labsh"].count()
+percentage_counts = round((counts / pwt_labsh["countrycode"].nunique()) * 100, 2).astype(int)
+percentage_counts
+
+fig, (ax1, ax2) = plt.subplots(2,1,figsize=(11, 6), gridspec_kw={'height_ratios': [4, 1]}, facecolor=moon_blue)
+
+fig.tight_layout()
+
+# Setting the facecolours
+ax1.set_facecolor(moon_blue)  # Match figure background
+ax1.set_ylabel("Labour Share", fontsize=12, color=moon_text)
+
+ax2.set_facecolor(moon_blue)  # Match figure background
+ax2.set_xlabel("Year", fontsize=12, color=moon_text)
+ax2.set_ylabel("Labour Share", fontsize=12, color=moon_text)
+
+# Plotting the data
+ax1.scatter(pwt_labsh["year"], pwt_labsh["labsh"], color=moon_text, alpha=0.2, s=5, zorder=5)
+ax1.plot(median, label="Median", linewidth=3, color=moon_accent, zorder=10)
+ax1.fill_between(std_error.index, median - std_error, median + std_error, label="Standard Deviation", color='lightskyblue', alpha=0.3, zorder=6)
+
+ax2.bar(percentage_counts.index, percentage_counts, color=moon_accent, edgecolor=moon_accent, zorder=10)
+
+# Setting the xticks
+ax1.tick_params(colors=moon_text)
+ax2.tick_params(colors=moon_text)
+
+ax1.set_xticks(xticks)
+ax1.set_xticklabels(xticks)
+
+ax2.set_xticks(xticks)
+ax2.set_xticklabels(xticks)
+
+ax1.set_xlim(left=pwt_labsh_avg["year"].min(), right=pwt_labsh_avg["year"].max())
+ax2.set_xlim(left=pwt_labsh_avg["year"].min(), right=pwt_labsh_avg["year"].max())
+
+# Setting the yticks
+y_ticks1 = [f"{round((tick*100),2).astype(int)}%" for tick in ax1.get_yticks()]
+y_ticks2 = np.arange(0, 81, 20)
+
+ax2.set_yticks(y_ticks2)
+
+ax1.set_yticklabels(y_ticks1)
+ax2.set_yticklabels([f"{tick}%" for tick in y_ticks2])
+
+# Removing the spines
+ax1.spines['top'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+ax1.spines['left'].set_color(moon_text)
+ax1.spines['bottom'].set_color(moon_text)
+
+ax2.spines['top'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+ax2.spines['left'].set_color(moon_text)
+ax2.spines['bottom'].set_color(moon_text)
+
+# Grid styling
+ax1.yaxis.grid(True, color=moon_text, alpha=0.3, zorder=-10)
+ax2.yaxis.grid(True, color=moon_text, alpha=0.3, zorder=-10)
+
+# Adding the legend
+ax1.legend(facecolor=moon_blue, edgecolor=moon_blue, labelcolor=moon_text)
+
+plt.show()
+```
