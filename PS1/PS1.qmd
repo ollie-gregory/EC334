@@ -1,0 +1,308 @@
+---
+title: "Problem Set 1"
+author: "Oliver Gregory"
+format: revealjs
+---
+
+```{python, echo=FALSE}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from utils import get_naics_descriptions
+import warnings
+warnings.filterwarnings("ignore")
+
+## Loading the data:
+
+firm_data = pd.read_stata('firmdata.dta')
+
+firm_data["year"] = pd.to_datetime(firm_data["year"], format='%Y').dt.year
+firm_data = firm_data.astype({
+    "firmid": int,
+    "sales": int,
+    "operatingexpenses": int
+})
+
+firm_data = get_naics_descriptions(firm_data)
+```
+
+:::{.center}
+## Has there been an increase in concentration among US publicly listed firms?
+:::
+
+## Number of listed firms over time
+
+::::{.columns}
+:::{.column width=50%}
+```{python, echo=FALSE}
+firm_count_by_year = pd.DataFrame(firm_data.groupby("year")["firmid"].nunique()).reset_index()
+
+fig, ax = plt.subplots(figsize=(5, 4))
+
+fig.text(0, 1, "Outta Time, Outta Business", fontsize=16, fontfamily='PT Serif')
+fig.text(0, 0.95, "Number of firms steadily decreased since 1990s.", fontsize=12, alpha=0.75, fontfamily='PT Serif')
+
+fig.tight_layout()
+
+ax.set_xlabel("Year", fontfamily='PT Serif', fontsize=12)
+ax.set_ylabel("Firm Count", fontfamily='PT Serif', fontsize=12)
+
+ax.plot(firm_count_by_year["year"], firm_count_by_year["firmid"], color='#001949', linewidth=3)
+
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+
+ax.yaxis.grid(True, color='#001949', alpha=0.5)
+
+ax.set_xticks(firm_count_by_year["year"][::2])
+ax.set_xticklabels(firm_count_by_year["year"][::2], fontfamily='PT Serif')
+
+y_ticks = [tick.astype(int) for tick in ax.get_yticks()]
+
+ax.set_yticklabels(y_ticks, fontfamily='PT Serif')
+
+ax.set_xlim(left=firm_count_by_year["year"].min(), right=firm_count_by_year["year"].max())
+```
+:::
+:::{.column width=50% style="font-size: 0.65em;"}
+- Since the 1990s, the number of publicly listed firms has been steadily decreasing.
+    - Over 30% decrease in the number of firms from a high of 4600 in 1998 to 3200 in 2015.
+- This decrease could be a sign that the market is becoming more concentrated.
+- Along with this, the decrease in the number of firms also implies a decrease in the level of competition.
+:::
+::::
+
+## Average HHI over time
+
+::::{.columns}
+:::{.column width=50%}
+```{python, echo=FALSE}
+def calculate_industry_HHI(df):
+    df = df.copy()
+    df["market_share"] = df["sales"] / df["sales"].sum()
+    df["HHI"] = (df["market_share"] ** 2).sum()
+    return df
+
+HHI_df_long = firm_data.groupby(["year", "naics"]).apply(calculate_industry_HHI).reset_index(drop=True)
+
+HHI_df = HHI_df_long[['year', 'naics', 'HHI']].drop_duplicates()
+
+avg_HHI_df = HHI_df.groupby("year")["HHI"].mean().reset_index()
+
+fig, ax = plt.subplots(figsize=(5, 4))
+
+fig.text(0, 1, "The Concentration Game", fontsize=16, fontfamily='PT Serif')
+fig.text(0, 0.95, "Herfindahl Herschman Index (HHI) increase since 1990s.", fontsize=12, alpha=0.75, fontfamily='PT Serif')
+
+fig.tight_layout()
+
+ax.set_xlabel("Year", fontfamily='PT Serif', fontsize=12)
+ax.set_ylabel("HHI", fontfamily='PT Serif', fontsize=12)
+
+ax.plot(avg_HHI_df["year"], avg_HHI_df["HHI"], color='#001949', linewidth=3)
+
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+
+ax.yaxis.grid(True, color='#001949', alpha=0.5)
+
+ax.set_xticks(avg_HHI_df["year"][::2])
+ax.set_xticklabels(avg_HHI_df["year"][::2], fontfamily='PT Serif')
+
+ax.set_yticklabels([round(tick, 2) for tick in ax.get_yticks()], fontfamily='PT Serif')
+
+ax.set_xlim(left=avg_HHI_df["year"].min(), right=avg_HHI_df["year"].max())
+
+plt.show()
+```
+:::
+:::{.column width=50% style="font-size: 0.65em;"}
+- The Herfindahl-Hirschman Index (HHI) is a common measure of market concentration.
+- From the graph we can see that since the 1990s, the average HHI across industries has increased by a sizeable amount.
+    - The HHI was at a low in 1998 of 0.6 and increased to a high of 0.67 by 2011.
+    - This mirrors our previous observation that the number of firms has been decreasing with the HHI low coinciding with the peak in the number of firms.
+:::
+::::
+
+## Average CR4 over time
+
+::::{.columns}
+:::{.column width=50%}
+```{python, echo=FALSE}
+def calculate_average_cr(df, num):
+    # Calculate market shares within each industry-year
+    df['total_industry_sales'] = df.groupby(['year', 'naics'])['sales'].transform('sum')
+    df['market_share'] = df['sales'] / df['total_industry_sales']
+    
+    # For each industry-year, get sum of top 4 market shares
+    cr4 = df.groupby(['year', 'naics'])['market_share'] \
+            .nlargest(num) \
+            .groupby(['year', 'naics']) \
+            .sum() \
+            .reset_index()
+    
+    # Calculate average CR4 across all industries for each year
+    avg_cr4 = cr4.groupby('year')['market_share'].mean().reset_index()
+    return avg_cr4
+
+avg_cr4_data = calculate_average_cr(firm_data, 4)
+
+fig, ax = plt.subplots(figsize=(5, 4))
+
+fig.text(0, 1, "The Big Four", fontsize=16, fontfamily='PT Serif')
+fig.text(0, 0.95, "Average market share increase for top 4 firms.", fontsize=12, alpha=0.75, fontfamily='PT Serif')
+
+fig.tight_layout()
+
+ax.set_xlabel("Year", fontfamily='PT Serif', fontsize=12)
+ax.set_ylabel("Average CR4", fontfamily='PT Serif', fontsize=12)
+
+ax.plot(avg_cr4_data["year"], avg_cr4_data["market_share"], color='#001949', linewidth=3)
+
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+
+ax.xaxis.grid(False)
+ax.yaxis.grid(True, color='#001949', alpha=0.5)
+
+ax.set_xticks(avg_cr4_data["year"][::2])
+ax.set_xticklabels(avg_cr4_data["year"][::2], fontfamily='PT Serif')
+
+ax.set_yticklabels([round(tick, 3) for tick in ax.get_yticks()], fontfamily='PT Serif')
+
+ax.set_xlim(left=avg_cr4_data["year"].min(), right=avg_cr4_data["year"].max())
+
+plt.show()
+```
+:::
+:::{.column width=50% style="font-size: 0.65em;"}
+- The Concentration Ratio (CR) is another measure of market concentration.
+- This graph shows the average market share of the top 4 firms in each industry (CR4).
+    - From the graph we can see that since the 1990s, the average CR4 has increased from roughly 94% to 96%.
+    - This also implies an increase in the level of concentration, however, as industry definitions are quite narrow in this dataset, the number of firms in each industry is lower than if we were to use broader industry definitions. This could explain why the concentration ratios are quite high in the first place.
+:::
+::::
+
+## Scale without mass
+
+```{python, echo=FALSE}
+def cr_operatingexpenses(df, num):
+    # Calculate market shares within each industry-year
+    df['total_industry_opex'] = df.groupby(['year', 'naics'])['operatingexpenses'].transform('sum')
+    df['total_industry_sales'] = df.groupby(['year', 'naics'])['sales'].transform('sum')
+    df['opex_market_share'] = df['operatingexpenses'] / df['total_industry_opex']
+    df['sales_market_share'] = df['sales'] / df['total_industry_sales']
+    
+    # Get indices of top 4 companies by sales market share
+    top_indices = df.groupby(['year', 'naics'])['sales_market_share'] \
+                   .nlargest(num) \
+                   .reset_index(level=[0,1], drop=True) \
+                   .index
+    
+    # Use these indices to get operating expense market shares of same companies
+    cr4 = df.loc[top_indices].groupby(['year', 'naics'])['opex_market_share'] \
+          .sum() \
+          .reset_index()
+    
+    # Calculate average CR4 across all industries for each year
+    avg_cr4 = cr4.groupby('year')['opex_market_share'].mean().reset_index()
+    return avg_cr4
+
+avg_cr4_operatingexpenses = cr_operatingexpenses(firm_data, 4)
+avg_cr4_data_merged = avg_cr4_data.merge(avg_cr4_operatingexpenses, on='year')
+
+def cr_sales_and_opex(df, num):
+    # Calculate market shares within each industry-year
+    df['total_industry_opex'] = df.groupby(['year', 'naics'])['operatingexpenses'].transform('sum')
+    df['total_industry_sales'] = df.groupby(['year', 'naics'])['sales'].transform('sum')
+    df['sales_market_share'] = df['sales'] / df['total_industry_sales']
+    
+    # Get indices of top 4 companies by sales market share
+    top_indices = df.groupby(['year', 'naics'])['sales_market_share'] \
+                   .nlargest(num) \
+                   .reset_index(level=[0,1], drop=True) \
+                   .index
+    
+    # Use these indices to get operating expense market shares of same companies
+    cr4_sales = df.loc[top_indices].groupby(['year', 'naics'])['sales'] \
+          .sum() \
+          .reset_index()
+    
+    cr4_opex = df.loc[top_indices].groupby(['year', 'naics'])['operatingexpenses'] \
+          .sum() \
+          .reset_index()
+          
+    cr4 = cr4_sales.merge(cr4_opex, on=['year', 'naics'])
+    total_cr4 = cr4.groupby('year').sum().reset_index()
+
+    return total_cr4
+
+cr4_sales_opex_df = cr_sales_and_opex(firm_data, 4)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 3))
+
+fig.tight_layout()
+
+plt.subplots_adjust(wspace=0.3)
+
+ax1.set_title("Sales & Opex Market Share (CR4)", fontfamily='PT Serif', fontsize=16)
+
+ax1.set_xlabel("Year", fontfamily='PT Serif', fontsize=12)
+ax1.set_ylabel("Market Share", fontfamily='PT Serif', fontsize=12)
+
+ax1.plot(avg_cr4_data_merged["year"], avg_cr4_data_merged["market_share"], label='Sales', color='#001949', linewidth=3)
+ax1.plot(avg_cr4_data_merged["year"], avg_cr4_data_merged["opex_market_share"], label='Operating Expenses', linewidth=3)
+
+ax1.spines['top'].set_visible(False)
+ax1.spines['left'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+ax1.xaxis.grid(False)
+ax1.yaxis.grid(True, color='#001949', alpha=0.5)
+
+ax1.set_xticks(avg_cr4_data_merged["year"][::2])
+ax1.set_xticklabels(avg_cr4_data_merged["year"][::2], fontfamily='PT Serif')
+ax1.set_yticklabels([round(tick, 3) for tick in ax1.get_yticks()], fontfamily='PT Serif')
+
+ax1.set_xlim(left=avg_cr4_data["year"].min(), right=avg_cr4_data["year"].max())
+
+ax1.legend()
+
+ax2.set_title("Absolute Sales & Opex (CR4)", fontfamily='PT Serif', fontsize=16)
+
+ax2.set_xlabel("Year", fontfamily='PT Serif', fontsize=12)
+ax2.set_ylabel("Total Sales and Operating Expenses", fontfamily='PT Serif', fontsize=12)
+
+ax2.plot(cr4_sales_opex_df["year"], cr4_sales_opex_df["sales"], label='Sales', color='#001949', linewidth=3)
+ax2.plot(cr4_sales_opex_df["year"], cr4_sales_opex_df["operatingexpenses"], label='Operating Expenses', linewidth=3)
+
+ax2.spines['top'].set_visible(False)
+ax2.spines['left'].set_visible(False)
+ax2.spines['right'].set_visible(False)
+
+ax2.xaxis.grid(False)
+ax2.yaxis.grid(True, color='#001949', alpha=0.5)
+
+ax2.set_xticks(avg_cr4_data_merged["year"][::2])
+ax2.set_xticklabels(avg_cr4_data_merged["year"][::2], fontfamily='PT Serif')
+ax2.set_yticklabels([f"{int(tick):,}" for tick in ax2.get_yticks()], fontfamily='PT Serif')
+
+ax2.set_xlim(left=avg_cr4_data["year"].min(), right=avg_cr4_data["year"].max())
+
+ax2.legend()
+
+plt.show()
+```
+:::{style="font-size: 0.4em;"}
+- The 'scale without mass' concept in Van Reenen (2018) refers to the idea that firms are getting larger and industries more concentrated in terms of sales, but not necessarily in terms of employment.
+- As we don't have access to any employment data in this dataset, we make use of operating expenses as a proxy for employment. This is because operating expenses will include wages and salaries, which are a large component of employment costs.
+- As we can see from the graphs though, contrary to the 'scale without mass' idea, the increase in sales of the top 4 firms by market share has been broadly matched by an increase in operating expenses.
+    - This does not disprove the idea of 'scale without mass' as operating expenses are not a perfect proxy for employment; however, it does show that as industries have concentrated in terms of sales, they have also concentrated in terms of operating expenses.
+:::
+
+## Scale without mass
+
+plot the ratio of sales to cost.
