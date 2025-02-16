@@ -1,0 +1,75 @@
+---
+title: "Problem Set 2"
+author: "Oliver Gregory"
+format:
+    revealjs:
+        fontsize: 30px
+        theme: moon
+---
+
+:::{.center}
+# Is there a positive relationship between concentration and markup?
+:::
+
+```{python, echo=FALSE}
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
+import statsmodels.api as sm
+from pprint import pprint
+
+# Moon theme color palette
+moon_heading = '#EEE8D5'
+moon_blue = '#012B36'  # Deep blue
+moon_accent = '#2082C3'  # Lighter blue accent
+moon_text = '#94A0A1'  # Grey
+moon_green = "darkturquoise"
+
+concentration = pd.read_csv("./data/sectorconcentration.csv")
+markups = pd.read_csv("./data/sectormarkups.csv")
+```
+
+## What does the data look like?
+
+```{python, echo=FALSE}
+data = pd.merge(concentration, markups, on=["year", "naics_4"])
+data[['dherfindahl', 'dmarkup']].describe()
+```
+
+## What does the data look like?
+
+```{python, echo=FALSE}
+def plot_histograms(data, columns, bins=30):
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 7), facecolor=moon_blue)
+
+    fig.suptitle("Distribution of Concentration and Markup", fontsize=20, color=moon_text)
+    
+    for ax, column in zip([ax1, ax2], columns):
+        ax.set_facecolor(moon_blue)
+        ax.set_xlabel(column, fontsize=12, color=moon_text)
+        ax.set_ylabel("Frequency", fontsize=12, color=moon_text)
+        
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.spines['left'].set_color(moon_text)
+        ax.spines['bottom'].set_color(moon_text)
+        
+        ax.hist(data[column], bins=bins, color=moon_accent, zorder=20)
+        
+        mu, sigma = data[column].mean(), data[column].std()
+        x = np.linspace(data[column].min(), data[column].max(), 100)
+        p = norm.pdf(x, mu, sigma)
+        
+        ax.plot(x, p * len(data[column]) * (data[column].max() - data[column].min()) / bins, zorder=22, color=moon_green)
+        
+        ax.yaxis.grid(True, color=moon_text, alpha=0.3, zorder=-10)
+        ax.tick_params(colors=moon_text)
+    
+    plt.tight_layout()
+    fig.show()
+
+# Call the function with both columns
+plot_histograms(data, ['dherfindahl', 'dmarkup'])
+```
