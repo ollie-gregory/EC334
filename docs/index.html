@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="PS4_files/libs/clipboard/clipboard.min.js"></script>
-<script src="PS4_files/libs/quarto-html/tabby.min.js"></script>
-<script src="PS4_files/libs/quarto-html/popper.min.js"></script>
-<script src="PS4_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="PS4_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="PS4_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="PS4_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="PS4_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="PS6_files/libs/clipboard/clipboard.min.js"></script>
+<script src="PS6_files/libs/quarto-html/tabby.min.js"></script>
+<script src="PS6_files/libs/quarto-html/popper.min.js"></script>
+<script src="PS6_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="PS6_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="PS6_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="PS6_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="PS6_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Oliver Gregory">
-  <title>Problem Set 4</title>
+  <title>Problem Set 6</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="PS4_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="PS4_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="PS6_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="PS6_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -30,11 +30,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="PS4_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="PS4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="PS4_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="PS4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="PS4_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="PS6_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="PS6_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="PS6_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="PS6_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="PS6_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -320,16 +320,13 @@
       margin-right: 0; 
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-  
-  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Problem Set 4</h1>
+  <h1 class="title">Problem Set 6</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -340,223 +337,32 @@ Oliver Gregory
 </div>
 
 </section>
-<section id="is-there-a-positive-relationship-between-concentration-and-markup" class="title-slide slide level1 center">
-<h1>Is there a positive relationship between concentration and markup?</h1>
-
+<section id="romer-and-romer-2004-monetary-policy-shocks" class="slide level2">
+<h2>Romer and Romer (2004) Monetary Policy Shocks</h2>
+<p>The function we will estimate is given by:</p>
+<p><span class="math display">\[
+y_{t+h} - y_{t-1} = \alpha_h + \beta_h \text{Romer Shock}_t + u_t
+\]</span></p>
+<p>where <span class="math inline">\(y\)</span> is either the log of industrial production (IP) or the log of the consumer price index (CPI).</p>
+<p>In Romer and Romer (2004), the authors estimate a slightly different equation:</p>
+<p><span class="math display">\[
+\Delta y_t = \alpha_0 + \sum_{k=1}^{11} \alpha_k D_{kt} + \sum_{i=1}^{24} b_i \Delta y_{t-i} + \sum_{j=1}^{36} c_j S_{t-j} + e_t
+\]</span></p>
+<p>This regresses the change in output on a set of monthly dummy variables, lags of the dependent variable, and lags of the shock variable.</p>
+<p>This is a potential reason why their results are different from ours.</p>
 </section>
-
-<section id="what-does-the-data-look-like" class="slide level2">
-<h2>What does the data look like?</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li>~ 3,000 observations for each variable.</li>
-<li>Large standard deviations relative to the means.</li>
-<li>Average Herfindahl index of 0.6%.</li>
-<li>Average markup of 0.02%.</li>
-</ul>
-</div><div class="column">
-<div id="4975bc6d" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display" data-execution_count="337">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">dherfindahl</th>
-<th data-quarto-table-cell-role="th">dmarkup</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">count</td>
-<td>2940.000000</td>
-<td>2940.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">mean</td>
-<td>0.006574</td>
-<td>0.001570</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">std</td>
-<td>0.072550</td>
-<td>0.029335</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">min</td>
-<td>-0.494535</td>
-<td>-0.099505</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">25%</td>
-<td>-0.006559</td>
-<td>-0.013762</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">50%</td>
-<td>0.000000</td>
-<td>0.001697</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">75%</td>
-<td>0.011691</td>
-<td>0.017090</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">max</td>
-<td>0.623492</td>
-<td>0.099744</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="what-does-the-data-look-like-1" class="slide level2">
-<h2>What does the data look like?</h2>
-<div class="center">
-<div id="93b06c6c" class="cell" data-execution_count="3">
+<section id="horizon-analysis" class="slide level2">
+<h2>Horizon analysis</h2>
+<div id="50b89fbf" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="PS4_files/figure-revealjs/cell-4-output-1.png" width="1044" height="335"></p>
+<p><img data-src="PS6_files/figure-revealjs/cell-4-output-1.png" width="1046" height="422"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-<p>What do we find when approximating a normal distribution for the Herfindahl index and markups based on their means and standard deviations?</p>
-<ul>
-<li>Markups are well approximated by a normal distribution.</li>
-<li>The Herfindahl index is not well approximated by a normal distribution.</li>
-</ul>
-</section>
-<section id="winsorising-the-data" class="slide level2">
-<h2>Winsorising the data</h2>
-<div id="b7ad28f0" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display" data-execution_count="339">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-
-<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header" style="text-align: right;">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">dherfindahl</th>
-<th data-quarto-table-cell-role="th">dherfindahl_win</th>
-<th data-quarto-table-cell-role="th">dmarkup</th>
-<th data-quarto-table-cell-role="th">dmarkup_win</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">dherfindahl</td>
-<td>1.000000</td>
-<td>0.787688</td>
-<td>0.034899</td>
-<td>0.028736</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">dherfindahl_win</td>
-<td>0.787688</td>
-<td>1.000000</td>
-<td>0.036309</td>
-<td>0.034024</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">dmarkup</td>
-<td>0.034899</td>
-<td>0.036309</td>
-<td>1.000000</td>
-<td>0.978033</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">dmarkup_win</td>
-<td>0.028736</td>
-<td>0.034024</td>
-<td>0.978033</td>
-<td>1.000000</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>Correlation between the original and winsorised data:</p>
-<ul>
-<li>Herfindahl index: 0.978</li>
-<li>Markup: 0.999</li>
-</ul>
-</section>
-<section id="regression-analysis" class="slide level2 smaller">
-<h2>Regression analysis</h2>
-<p><span class="math display">\[
-\text{Herfindahl}_{it} = \alpha + \beta \text{Markup}_{it} + \epsilon_{it}
-\]</span></p>
-<div class="columns">
-<div class="column">
-<h3 id="original-data">Original data</h3>
-<div id="ed7d0a3f" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-stdout">
-<pre><code>==============================================================================
-                 coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------
-const          0.0064      0.001      4.807      0.000       0.004       0.009
-dmarkup        0.0863      0.046      1.893      0.058      -0.003       0.176
-==============================================================================</code></pre>
-</div>
-</div>
-<ul>
-<li>Coefficient of 0.0863 on markup.</li>
-</ul>
-</div><div class="column">
-<h3 id="winsorised-data">Winsorised data</h3>
-<div id="1422c769" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-stdout">
-<pre><code>===============================================================================
-                  coef    std err          t      P&gt;|t|      [0.025      0.975]
--------------------------------------------------------------------------------
-const           0.0042      0.001      7.528      0.000       0.003       0.005
-dmarkup_win     0.0412      0.022      1.845      0.065      -0.003       0.085
-===============================================================================</code></pre>
-</div>
-</div>
-<ul>
-<li>Coefficient of 0.0412 on winsorised markup.</li>
-<li>Less than half the size of the coefficient on the original data.</li>
-</ul>
-</div></div>
+<p>The interpretation for negative <span class="math inline">\(h\)</span> values is the effect of the present Romer shock on past output.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -567,19 +373,19 @@ dmarkup_win     0.0412      0.022      1.845      0.065      -0.003       0.085
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="PS4_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="PS6_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="PS4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="PS4_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="PS4_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="PS4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="PS4_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="PS6_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="PS6_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="PS6_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="PS6_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="PS6_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="PS4_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="PS4_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="PS4_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="PS4_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="PS6_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="PS6_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="PS6_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="PS6_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

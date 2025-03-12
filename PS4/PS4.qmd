@@ -1,5 +1,5 @@
 ---
-title: "Problem Set 2"
+title: "Problem Set 4"
 author: "Oliver Gregory"
 format:
     revealjs:
@@ -32,17 +32,28 @@ markups = pd.read_csv("./data/sectormarkups.csv")
 
 ## What does the data look like?
 
+:::{.columns}
+::::{.column}
+- \~ 3,000 observations for each variable.
+- Large standard deviations relative to the means.
+- Average Herfindahl index of 0.6%.
+- Average markup of 0.02%.
+::::
+::::{.column}
 ```{python, echo=FALSE}
 data = pd.merge(concentration, markups, on=["year", "naics_4"])
 data[['dherfindahl', 'dmarkup']].describe()
 ```
+::::
+:::
 
 ## What does the data look like?
 
+:::{.center}
 ```{python, echo=FALSE}
 def plot_histograms(data, columns, bins=30):
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 7), facecolor=moon_blue)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 3.5), facecolor=moon_blue)
 
     fig.suptitle("Distribution of Concentration and Markup", fontsize=20, color=moon_text)
     
@@ -73,3 +84,62 @@ def plot_histograms(data, columns, bins=30):
 # Call the function with both columns
 plot_histograms(data, ['dherfindahl', 'dmarkup'])
 ```
+:::
+
+What do we find when approximating a normal distribution for the Herfindahl index and markups based on their means and standard deviations?
+
+- Markups are well approximated by a normal distribution.
+- The Herfindahl index is not well approximated by a normal distribution.
+
+## Winsorising the data
+
+```{python}
+data['dherfindahl_win'] = data['dherfindahl'].clip(lower=data['dherfindahl'].quantile(0.05), upper=data['dherfindahl'].quantile(0.95))
+data['dmarkup_win'] = data['dmarkup'].clip(lower=data['dmarkup'].quantile(0.05), upper=data['dmarkup'].quantile(0.95))
+
+correlation_matrix = data[['dherfindahl', 'dherfindahl_win', 'dmarkup', 'dmarkup_win']].corr()
+correlation_matrix
+```
+
+Correlation between the original and winsorised data:
+
+- Herfindahl index: 0.978
+- Markup: 0.999
+
+## Regression analysis {.smaller}
+
+$$
+\text{Herfindahl}_{it} = \alpha + \beta \text{Markup}_{it} + \epsilon_{it}
+$$
+
+:::{.columns}
+::::{.column}
+### Original data
+
+```{python}
+X = data['dmarkup']
+X = sm.add_constant(X)
+y = data['dherfindahl']
+
+model = sm.OLS(y, X).fit()
+print(model.summary().tables[1])
+```
+
+- Coefficient of 0.0863 on markup.
+::::
+::::{.column}
+### Winsorised data
+
+```{python}
+X = data['dmarkup_win']
+X = sm.add_constant(X)
+y = data['dherfindahl_win']
+
+model = sm.OLS(y, X).fit()
+print(model.summary().tables[1])
+```
+
+- Coefficient of 0.0412 on winsorised markup.
+- Less than half the size of the coefficient on the original data.
+::::
+:::
