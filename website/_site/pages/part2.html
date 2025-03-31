@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Firm Heterogeneity and Market Power – Advanced Macroeconomics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+window.MathJax = {
+  tex: {
+    packages: {'[+]': ['color']}
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/part2.html">Firm Heterogeneity and Market Power</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Advanced Macroeconomics</a> 
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Growing Differences Between Firms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Firm Heterogeneity and Market Power</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Productivity Dispersion, Concentration, and Oligopoly</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Large Firms, Production Networks, and Business Cycles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Market Power and Innovation</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#rising-profit-shares" id="toc-rising-profit-shares" class="nav-link active" data-scroll-target="#rising-profit-shares">Rising profit shares</a>
+  <ul class="collapse">
+  <li><a href="#what-are-accounting-profits" id="toc-what-are-accounting-profits" class="nav-link" data-scroll-target="#what-are-accounting-profits">What are accounting profits?</a></li>
+  <li><a href="#what-are-economic-profits" id="toc-what-are-economic-profits" class="nav-link" data-scroll-target="#what-are-economic-profits">What are economic profits?</a></li>
+  <li><a href="#how-can-we-measure-profits-in-the-macroeconomy" id="toc-how-can-we-measure-profits-in-the-macroeconomy" class="nav-link" data-scroll-target="#how-can-we-measure-profits-in-the-macroeconomy">How can we measure profits in the macroeconomy?</a></li>
+  <li><a href="#how-has-the-breakdown-of-economic-profits-changed-since-the-1980s" id="toc-how-has-the-breakdown-of-economic-profits-changed-since-the-1980s" class="nav-link" data-scroll-target="#how-has-the-breakdown-of-economic-profits-changed-since-the-1980s">How has the breakdown of economic profits changed since the 1980s?</a></li>
+  </ul></li>
+  <li><a href="#market-power-through-monopolies" id="toc-market-power-through-monopolies" class="nav-link" data-scroll-target="#market-power-through-monopolies">Market power through monopolies</a>
+  <ul class="collapse">
+  <li><a href="#what-are-the-main-sources-of-pure-economic-profits-in-the-macroeconomy" id="toc-what-are-the-main-sources-of-pure-economic-profits-in-the-macroeconomy" class="nav-link" data-scroll-target="#what-are-the-main-sources-of-pure-economic-profits-in-the-macroeconomy">What are the main sources of pure economic profits in the macroeconomy?</a></li>
+  <li><a href="#how-do-we-define-aggregate-consumption-c" id="toc-how-do-we-define-aggregate-consumption-c" class="nav-link" data-scroll-target="#how-do-we-define-aggregate-consumption-c">How do we define aggregate consumption <span class="math inline">\(C\)</span>?</a></li>
+  <li><a href="#what-is-the-household-problem" id="toc-what-is-the-household-problem" class="nav-link" data-scroll-target="#what-is-the-household-problem">What is the household problem?</a></li>
+  <li><a href="#how-do-we-solve-the-optimisation-problem" id="toc-how-do-we-solve-the-optimisation-problem" class="nav-link" data-scroll-target="#how-do-we-solve-the-optimisation-problem">How do we solve the optimisation problem?</a></li>
+  </ul></li>
+  <li><a href="#macroeconomic-effects-of-market-power" id="toc-macroeconomic-effects-of-market-power" class="nav-link" data-scroll-target="#macroeconomic-effects-of-market-power">Macroeconomic effects of market power</a>
+  <ul class="collapse">
+  <li><a href="#what-is-the-link-between-markup-and-wages" id="toc-what-is-the-link-between-markup-and-wages" class="nav-link" data-scroll-target="#what-is-the-link-between-markup-and-wages">What is the link between markup and wages?</a></li>
+  <li><a href="#what-is-the-link-between-markup-and-output" id="toc-what-is-the-link-between-markup-and-output" class="nav-link" data-scroll-target="#what-is-the-link-between-markup-and-output">What is the link between markup and output?</a></li>
+  <li><a href="#what-is-the-link-between-markup-and-the-labour-share" id="toc-what-is-the-link-between-markup-and-the-labour-share" class="nav-link" data-scroll-target="#what-is-the-link-between-markup-and-the-labour-share">What is the link between markup and the labour share?</a></li>
+  </ul></li>
+  <li><a href="#concentration-productivity-and-markup-dispersion" id="toc-concentration-productivity-and-markup-dispersion" class="nav-link" data-scroll-target="#concentration-productivity-and-markup-dispersion">Concentration, productivity and markup dispersion</a>
+  <ul class="collapse">
+  <li><a href="#how-do-firms-choose-their-markup" id="toc-how-do-firms-choose-their-markup" class="nav-link" data-scroll-target="#how-do-firms-choose-their-markup">How do firms choose their markup?</a></li>
+  <li><a href="#can-the-model-explain-the-increase-in-market-concentration" id="toc-can-the-model-explain-the-increase-in-market-concentration" class="nav-link" data-scroll-target="#can-the-model-explain-the-increase-in-market-concentration">Can the model explain the increase in market concentration?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Firm Heterogeneity and Market Power</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="rising-profit-shares" class="level2">
+<h2 class="anchored" data-anchor-id="rising-profit-shares">Rising profit shares</h2>
+<section id="what-are-accounting-profits" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-accounting-profits">What are accounting profits?</h3>
+<ul>
+<li>Gross profits: total revenues minus cost of goods sold.</li>
+<li>Operating profits: gross profits minus general and administrative expenses.</li>
+<li>Net income: operating profits minus interest expenses and taxes.</li>
+</ul>
+<p>The net income of a firm that owns its own capital:</p>
+<p><span class="math display">\[
+\pi_{it} = PY_{it} - W_tL_{it}- P_t^mM_{it}
+\]</span></p>
+</section>
+<section id="what-are-economic-profits" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-economic-profits">What are economic profits?</h3>
+<p>Economic profit is the difference between revenue and fair factor payments.</p>
+<ul>
+<li><p>At the firm level:</p>
+<p><span class="math display">\[
+  \pi_{it} = PY_{it}- W_tL_{it}- r_tP_t^kK_{it} - P_t^mM_{it}
+  \]</span></p>
+<ul>
+<li>If a firm owns its own capital, it is forgoing the rent on that capital.</li>
+<li><span class="math inline">\(r_tP_t^kK_{it}\)</span> is the rental rate of capital, multiplied by the price of capital and the quantity of capital.</li>
+</ul></li>
+<li><p>At the macro level (closed or balanced trade economy):</p>
+<p><span class="math display">\[
+  \pi_t = PY_t - W_tL_t - r_tP_t^kK_t
+  \]</span></p>
+<ul>
+<li>For a closed economy the last term disappears. This is because this represents payments to other firms for materials and so when we add them all up, these terms cancel out.</li>
+</ul></li>
+<li><p>Barkai (2000) shows that these economic profits as a share of GDP are increasing.</p></li>
+</ul>
+</section>
+<section id="how-can-we-measure-profits-in-the-macroeconomy" class="level3">
+<h3 class="anchored" data-anchor-id="how-can-we-measure-profits-in-the-macroeconomy">How can we measure profits in the macroeconomy?</h3>
+<p><span class="math display">\[
+\pi_t = PY_t - W_tL_t - r_tP_t^kK_t
+\]</span></p>
+<ul>
+<li>To measure profits, we need data on production, labour income and capital income.
+<ul>
+<li>Production: nominal gross value added (national accounts <span class="math inline">\(\approx\)</span> GDP).</li>
+<li>Labour income: total compensation of employees (national accounts).</li>
+<li>For fair capital payments, we need capital stock, rental rate and the price of capital.
+<ul>
+<li>Capital stock: fixed assets from national capital data (excluding housing).</li>
+<li>Price of capital: based on investment price index.</li>
+<li>Rate of return: cost of corporate bonds/commercial paper borrowing.
+<ul>
+<li>Risk adjustment: owning capital depreciates and is risky so it requires compensation.</li>
+<li>Derive the capital risk premium from the equity risk premium.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="how-has-the-breakdown-of-economic-profits-changed-since-the-1980s" class="level3">
+<h3 class="anchored" data-anchor-id="how-has-the-breakdown-of-economic-profits-changed-since-the-1980s">How has the breakdown of economic profits changed since the 1980s?</h3>
+<p><img src="Firm Heterogeneity and Market Power 188a84b4cffb8080a236e4adf367f2db/Screenshot_2025-01-28_at_15.15.11.png" class="img-fluid"></p>
+<p><img src="Firm Heterogeneity and Market Power 188a84b4cffb8080a236e4adf367f2db/Screenshot_2025-01-28_at_15.14.30.png" class="img-fluid"></p>
+<ul>
+<li>The first graph shows the return on equity and debt over time (along with the WACC) which has been steadily declining over the last 40 years.
+<ul>
+<li>Investors have demanded a lower and lower rate of return since the 80s, this is represented in a declining real interest rate.</li>
+</ul></li>
+<li>Depreciation and expected inflation has remained broadly constant.</li>
+<li>The required rate of return, <span class="math inline">\(r_t\)</span> in the formula, has steadily been falling.</li>
+<li>We see from the last two graphs that the capital share of GDP has been steadily declining while the pure profit share of GDP has been increasing.
+<ul>
+<li>As we saw last week, the labour share of national income has also been declining which contradicts the premise with a cobb-douglas production function that if the capital share decreases, the labour share must increase.</li>
+<li>This represents an excess return to owning companies which partly explains the vast increase in stock prices.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="market-power-through-monopolies" class="level2">
+<h2 class="anchored" data-anchor-id="market-power-through-monopolies">Market power through monopolies</h2>
+<section id="what-are-the-main-sources-of-pure-economic-profits-in-the-macroeconomy" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-the-main-sources-of-pure-economic-profits-in-the-macroeconomy">What are the main sources of pure economic profits in the macroeconomy?</h3>
+<ol type="1">
+<li>Markets can be sufficiently small for firms to interact strategically.
+<ul>
+<li>For example through barriers to entry (fixed costs, regulation).</li>
+<li>Or market size, for example, convenience shops.</li>
+</ul></li>
+<li>Firms may have technological advantages
+<ul>
+<li>Could be the result of innovation.</li>
+</ul></li>
+<li>Firms can differentiate the product that they offer.
+<ul>
+<li>This is the most common source of market power in macroeconomic models (BoE, Fed, ECB).</li>
+</ul></li>
+</ol>
+<p><strong>Dixit-Stiglitz Constant Elasticity of Substitution Aggregator</strong></p>
+<ul>
+<li>Source of market power comes from <strong>product differentiation</strong> and monopoly.</li>
+<li>There is heterogeneity in productivity (and thus size) and activity.</li>
+<li>What are the ingredients of this model?
+<ul>
+<li><p>Consumers have a love of variety which means they want to consume a basket of goods.</p></li>
+<li><p>Firms produce with a <strong>simple</strong> production function:</p>
+<p><span class="math display">\[
+  Y_i = A_iL_i
+  \]</span></p>
+<ul>
+<li>The only factors are productivity and labour.</li>
+</ul></li>
+<li><p>Firms charge a price that’s a markup <span class="math inline">\(\mu_i\)</span> over marginal costs:</p>
+<p><span class="math display">\[
+  P_i = \mu_i\text{MC}_i \implies P_i = \mu_i\left(\frac{W}{A_i}\right)
+  \]</span></p>
+<ul>
+<li>The marginal cost of producing a good is the wage divided by their productivity, ie, how much it costs to hire an additional person divided by how much that person can produce.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="how-do-we-define-aggregate-consumption-c" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-define-aggregate-consumption-c">How do we define aggregate consumption <span class="math inline">\(C\)</span>?</h3>
+<p>Aggregate consumption is a combination (basket) of many goods:</p>
+<p><span class="math display">\[
+C = \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}
+\]</span></p>
+<ul>
+<li>A firm <span class="math inline">\(i\)</span> produces a unique product as a monopolist and sets price <span class="math inline">\(P_i\)</span>.</li>
+<li>There is a continuum of goods with a measure of 1.
+<ul>
+<li>This is an approximation because there are thousands of coffee shops and supermarkets etc.</li>
+</ul></li>
+<li>The elasticity of substitution <span class="math inline">\(\epsilon\)</span> measures how similar products are and captures preferences.
+<ul>
+<li>As <span class="math inline">\(\epsilon \to \infty\)</span>, we get perfect competition as the more similar different goods are.</li>
+<li>As <span class="math inline">\(\epsilon \to 1\)</span>, the more difficult it is for consumers to substitute away from other goods.</li>
+</ul></li>
+<li>We get diminishing marginal utility from raising <span class="math inline">\(C_i\)</span> to the power of <span class="math inline">\(\frac{\epsilon - 1}{\epsilon} &lt; 1\)</span>. This means that holding everything else constant, increasing the consumption of one good, does not increase utility one for one. This captures the love of <strong>variety</strong>.</li>
+<li>Conversely, we do have <strong>constant returns to scale</strong>. This comes from raising the integral to the power of <span class="math inline">\(\frac{\epsilon}{\epsilon - 1}\)</span>. This means that increasing how much of everything we consume, increases utility by the same amount.</li>
+</ul>
+<p><span class="math display">\[
+\begin{split}
+\left[\int_0^1 (\lambda C_i)^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}} &amp;= \left[\lambda^{\frac{\epsilon - 1}{\epsilon}}\int_0^1 C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\ &amp;= \lambda^{(\frac{\epsilon - 1}{\epsilon} \times \frac{\epsilon}{\epsilon - 1})} \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\ &amp;= \lambda \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\ &amp;= \lambda C
+\end{split}
+\]</span></p>
+<ul>
+<li>All output is consumed: <span class="math inline">\(Y_i = C_i\)</span>.
+<ul>
+<li>This is because there is no investment in this model.</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-is-the-household-problem" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-household-problem">What is the household problem?</h3>
+<p>The household, beyond deciding how much to work, must decide how much of each good to purchase, which they do by <strong>minimising</strong> their total spending:</p>
+<p><span class="math display">\[
+P \times C = \int^1_0 P_i \times C_i di
+\]</span></p>
+<p>Subject to the constraint:</p>
+<p><span class="math display">\[
+C = \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}}
+\]</span></p>
+<p>What is the Lagrangean for this problem?</p>
+<p><span class="math display">\[
+\mathcal{L} = \left[\int^1_0 P_i \times C_i di\right] - \lambda \left(\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}}-C\right)
+\]</span></p>
+<ul>
+<li>Even though every single product is unique, we only have to solve this for one good as the optimisation problem is the same across goods.</li>
+<li>Households take the price of goods as given.</li>
+</ul>
+</section>
+<section id="how-do-we-solve-the-optimisation-problem" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-solve-the-optimisation-problem">How do we solve the optimisation problem?</h3>
+<p><span class="math display">\[
+\mathcal{L} = \left[\int^1_0 P_i \times C_i di\right] - \lambda \left(\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}}-C\right)
+\]</span></p>
+<p>First order condition with respect to <span class="math inline">\(C_i\)</span>:</p>
+<p><span class="math display">\[
+\begin{split}
+\left.\frac{\delta\mathcal{L}}{\delta C_i}\right|_{C_i^*} &amp;= P_i - \lambda\frac{\epsilon}{\epsilon -1}\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1} - 1}\frac{\epsilon - 1}{\epsilon}C_i^{\frac{\epsilon - 1}{\epsilon}-1}= 0\\
+P_i &amp;= \lambda\overbrace{\left(\frac{\epsilon}{\epsilon -1}\times\frac{\epsilon -1}{\epsilon}\right)}^{=1}C_i^{\overbrace{\frac{\epsilon-1}{\epsilon} - 1}^{=-1/\epsilon}}\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}-1}\\
+P_i^{-\epsilon} &amp;= \lambda ^{-\epsilon}C_i\left[\int^1_0C_i^{\frac{\epsilon-1}{\epsilon}}di\right]^{-\frac{\epsilon}{\epsilon - 1}}\\
+P_i^{-\epsilon} &amp;= \lambda^{-\epsilon}C_iC^{-1} \text{ where } C = \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}} \\
+C_i &amp;=\lambda^{\epsilon}P_i^{-\epsilon}C
+\end{split}
+\]</span></p>
+<ul>
+<li>This is saying how much of good <span class="math inline">\(i\)</span> the household consumes depends inversely on the price of good <span class="math inline">\(i\)</span> and how many baskets are consumed, <span class="math inline">\(C\)</span>.
+<ul>
+<li>The more baskets are consumed, the more of good <span class="math inline">\(i\)</span> is consumed, but the higher the price of good <span class="math inline">\(i\)</span>, the lower the consumption of it is.</li>
+</ul></li>
+</ul>
+<p>To get rid of the Lagrange multiplier, <span class="math inline">\(\lambda\)</span>, we use the relative demand between any two goods:</p>
+<p><span class="math display">\[
+\frac{C_i}{C_1} = \frac{\lambda^\epsilon P_i^{-\epsilon}C}{\lambda^\epsilon P_1^{-\epsilon}C} \implies \frac{C_i}{C_1} = \left(\frac{P_i}{P_1}\right)^{-\epsilon}
+\]</span></p>
+<p>We can now insert this result the household’s total spending on consumption goods, <span class="math inline">\(\int^1_0 P_i \times C_i di\)</span>:</p>
+<p><span class="math display">\[
+\begin{split}
+\int^1_0 P_iC_i di &amp;= \int_0^1P_iC_1\left(\frac{P_i}{P_1}\right)^{-\epsilon}di\\
+\int^1_0 P_iC_i di &amp;= C_1P_1^\epsilon \int_0^1P_i^{1-\epsilon}di\\
+C_1 &amp;= P_1^{-\epsilon}\left(\frac{\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\right)
+\end{split}
+\]</span></p>
+<ul>
+<li>This equation tells us that the demand of good 1 is a function of the price of good 1.</li>
+<li>The second part of the equation has total spending on top which means that the more is spent in total, the more good 1 is consumed. The bottom part is a measure of overall prices in the economy. The more expensive things are in the economy, for a given price of good 1, the more of it is consumed.</li>
+</ul>
+<p>The definition of the price index <span class="math inline">\(P\)</span> is:</p>
+<p><span class="math display">\[
+P_t \equiv \frac{\int_0^1 P_iC_idi}{C}
+\]</span></p>
+<p>To find the price index, we can insert the demand for individual goods <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[
+\begin{split}
+P &amp;= \frac{\int_0^1 P_iC_idi}{\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}}\\
+&amp;= \frac{\int_0^1 P_i\left(\frac{P_i^{-\epsilon}\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\right)di}{\left[ \int_0^1 \left(\frac{P_i^{-\epsilon}\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\right)^{\frac{\epsilon - 1}{\epsilon}} di \right]^\frac{\epsilon}{\epsilon -1}} \\
+&amp;= \frac{X\int_0^1P_i \times P_i^{-\epsilon} di}{X^{\frac{\epsilon - 1}{\epsilon }\frac{\epsilon}{\epsilon - 1}}\left[\int_0^1 P_i^{1-\epsilon}\right]^{\frac{\epsilon}{\epsilon - 1}}} \text{ where } X\equiv \frac{\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\\
+&amp;= \frac{\int_0^1 P_i^{1-\epsilon} di}{\left[ \int_0^1 P_i^{1-\epsilon} di \right]^{\frac{\epsilon}{\epsilon - 1}}}\\
+&amp;= \left[ \int_0^1P_i^{1-\epsilon} di \right]^{\frac{1}{1-\epsilon}}
+\end{split}
+\]</span></p>
+<p>We can insert this back into the demand function to get the final demand function in terms of the price of an individual good compared to everything else:</p>
+<p><span class="math display">\[
+\begin{split}
+C_1 &amp;= P_1^{-\epsilon}\left(\frac{\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\right)\\
+C_1 &amp;= P_1^{-\epsilon} CP \frac{1}{P^{1-\epsilon}}\\
+C_1 &amp;= \left(\frac{P_1}{P}\right)^{-\epsilon}C
+\end{split}
+\]</span></p>
+<p>Finally, we can insert the fact that the price <span class="math inline">\(P_1\)</span> is equivalent to the marginal cost of production multiplied by a markup <span class="math inline">\(\mu_1\)</span>.</p>
+<p><span class="math display">\[
+Y_1 = C_1 = \left(\frac{W}{A_1}\times\frac{\mu_1}{P}\right)^{-\epsilon}C
+\]</span></p>
+<ul>
+<li>If a firm’s productivity increases, it will produce more.</li>
+<li>If a firm’s markup increases, it will produce less.</li>
+<li>The effect of productivity or markup increases with the elasticity of substitution.</li>
+</ul>
+</section>
+</section>
+<section id="macroeconomic-effects-of-market-power" class="level2">
+<h2 class="anchored" data-anchor-id="macroeconomic-effects-of-market-power">Macroeconomic effects of market power</h2>
+<section id="what-is-the-link-between-markup-and-wages" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-link-between-markup-and-wages">What is the link between markup and wages?</h3>
+<p>Starting from the consumption basket, we can insert the demand function:</p>
+<p><span class="math display">\[
+C = \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}} = \left[\int_0^1\left(\left(\frac{W}{A_i}\times\frac{\mu_i}{P}\right)^{-\epsilon}C\right)^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\
+\]</span></p>
+<p><span class="math display">\[
+\begin{split}
+C &amp;= \left[\int_0^1\left(\left(\frac{W}{A_i}\times\frac{\mu_i}{P}\right)^{-\epsilon}\right)^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}} C^{\frac{\epsilon - 1}{\epsilon} \times \frac{\epsilon}{\epsilon - 1}}\\
+1 &amp;=\left[\int_0^1\left(\left(\frac{W}{A_i}\times\frac{\mu_i}{P}\right)^{-\epsilon}\right)^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\
+1 &amp;= \left(\frac{W}{P}\right)^{-\epsilon}\left[\int_0^1\left(\frac{A_i}{\mu_i}\right)^{\epsilon - 1}di\right]^{\frac{\epsilon}{\epsilon - 1}}\\
+\left(\frac{W}{P}\right)^{\epsilon} &amp;= \left[\int_0^1\left(\frac{A_i}{\mu_i}\right)^{\epsilon - 1}di\right]^{\frac{\epsilon}{\epsilon - 1}}\\
+\frac{W}{P} &amp;= \left[\int_0^1\left(\frac{A_i}{\mu_i}\right)^{\epsilon - 1}di\right]^{\frac{1}{\epsilon - 1}}
+\end{split}
+\]</span></p>
+<ul>
+<li>The real wage increases with how productive firms are.</li>
+</ul>
+<p>If we say that all firms have the same markup, <span class="math inline">\(\mu_i = \mu\)</span>, we get:</p>
+<p><span class="math display">\[
+\frac{W}{P} = \frac{1}{\mu}\left[\int_0^1(A_i)^{\epsilon - 1} di\right]^{\frac{1}{\epsilon - 1}}
+\]</span></p>
+<ul>
+<li>This means the real wage is a function of average productivity divided by the markup. Meaning that <strong>higher markups cause a markdown of wages.</strong></li>
+<li>This is because higher markups reduce the demand for goods, which reduces the demand for labour, which reduces the equilibrium wage.</li>
+</ul>
+</section>
+<section id="what-is-the-link-between-markup-and-output" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-link-between-markup-and-output">What is the link between markup and output?</h3>
+<p>For now, assume that there is a constant labour supply <span class="math inline">\(L^s\)</span>, such that labour market equilibrium gives:</p>
+<p><span class="math display">\[
+L^s = \int_0^1 L_idi \implies L_s = \int_0^1Y_i/A_i di \text{ where } Y_i = A_iL_i
+\]</span></p>
+<p>Substituting in the demand function <span class="math inline">\((Y_i = C_i)\)</span>:</p>
+<p><span class="math display">\[
+L^s = \int_0^1 \textcolor{red}{\left(\frac{W}{A_i} \times\frac{\mu_i}{P}\right)^{-\epsilon}}\frac{\textcolor{red}{C}}{A_i}di
+\]</span></p>
+<p>Inserting the real wage:</p>
+<p><span class="math display">\[
+\begin{split}
+L^s &amp;= \int_0^1 \left(\frac{W}{A_i} \times\frac{\mu_i}{P}\right)^{-\epsilon}\frac{C}{A_i}di\\
+L^s &amp;= C\int_0^1 \left( \left[\int_0^1\left(\frac{A_i}{\mu_i}\right)^{\epsilon - 1}di\right]^{\frac{1}{\epsilon - 1}} \frac{\mu_i}{A_i}\right)^{-\epsilon} \frac{1}{A_i} di
+\end{split}
+\]</span></p>
+<p>Let <span class="math inline">\(\mu_i = \mu\)</span>:</p>
+<p><span class="math display">\[
+\begin{split}
+L^s &amp;= C\int_0^1 \left( \overbrace{\left[\int_0^1\left({A_i}\right)^{\epsilon - 1}di\right]^{\frac{1}{\epsilon - 1}}}^{=A} \frac{1}{A_i}\right)^{-\epsilon} \frac{1}{A_i} di\\
+\frac{L^s}{C}&amp;= \int_0^1\left(A\times \frac{1}{A_i}\right)^{-\epsilon}\frac{1}{A_i} di\\
+&amp; = A^{-\epsilon}\int_0^1A_i^{\epsilon -1}di\\
+&amp;= A^{-\epsilon}\left(\left[\int_0^1A_i^{\epsilon -1}di\right]^\frac{1}{\epsilon - 1}\right)^{\epsilon - 1}\\
+&amp;= A^{-\epsilon} A^{\epsilon - 1}\\
+&amp;=A^{-1}\\
+C &amp;= L^s\left[\int_0^1 (A_i)^{\epsilon -1} di\right]^{\frac{1}{\epsilon - 1}}
+\end{split}
+\]</span></p>
+<ul>
+<li>This tells us that, when markups are constant, there is no direct effect of the markup on output.</li>
+</ul>
+</section>
+<section id="what-is-the-link-between-markup-and-the-labour-share" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-link-between-markup-and-the-labour-share">What is the link between markup and the labour share?</h3>
+<p>To get the labour share of output, we divide the real (nominal) wage payments by real (nominal) GDP:</p>
+<p><span class="math display">\[
+\frac{WL^s}{Y} = \frac{L^s\frac{1}{\mu} \left[ \int_0^1 A_i^{\epsilon -1}di\right]^\frac{1}{\epsilon - 1}}{L^s\left[ \int_0^1 A_i^{\epsilon -1}di\right]^\frac{1}{\epsilon - 1}} = \frac{1}{\mu}
+\]</span></p>
+<ul>
+<li>Intuitively, markups cause a part of income to go to profits and less to the factors of production.</li>
+<li>The mechanism for this is that higher markups reduce labour demand, and therefore for the labour market to clear, the wage has to be lower.</li>
+<li>Formally, markups cause a <strong>wedge</strong> between wage and marginal product.</li>
+<li>This generalises to the other factors of production too: higher markups reduce the interest rate on capital.</li>
+</ul>
+</section>
+</section>
+<section id="concentration-productivity-and-markup-dispersion" class="level2">
+<h2 class="anchored" data-anchor-id="concentration-productivity-and-markup-dispersion">Concentration, productivity and markup dispersion</h2>
+<section id="how-do-firms-choose-their-markup" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-firms-choose-their-markup">How do firms choose their markup?</h3>
+<p>So far, we have taken markups as exogenous, but there must be some profit maximising markup that firms would want to choose.</p>
+<ul>
+<li><p>Assume there are no fixed costs, meaning that the firm’s objective function is,</p>
+<p><span class="math display">\[
+  \pi_i = (P_i - \text{MC}_i)C_i
+  \]</span></p></li>
+<li><p>The constraint is the demand function:</p>
+<p><span class="math display">\[
+  C_i = \left(\frac{P_i}{P}\right)^{-\epsilon}C
+  \]</span></p></li>
+<li><p>What is the solution to the optimisation problem?</p>
+<p><span class="math display">\[
+  \frac{\delta}{\delta P_i}(P_i - \text{MC}_i)\left(\frac{P_i}{P}\right)^{-\epsilon}Y = (1-\epsilon)Y\frac{P_i^{-\epsilon}}{P^{-\epsilon}} + \epsilon \frac{\text{MC}_i Y}{P^{-\epsilon}}P_i^{-\epsilon -1}
+  \]</span> <span class="math display">\[
+  \begin{split}
+  0 &amp;= (1-\epsilon)Y\frac{P_i^{-\epsilon}}{P^{-\epsilon}} + \epsilon \frac{\text{MC}_i Y}{P^{-\epsilon}}P_i^{-\epsilon -1}\\
+  (\epsilon - 1) P_i^{-\epsilon}&amp;= \epsilon \text{MC}_iP_i^{-\epsilon -1}\\
+  \epsilon -1 &amp;= \epsilon \text{MC}_iP_i^{-1}\\
+  P_i &amp;= \frac{\epsilon}{\epsilon -1}\text{MC}_i
+  \end{split}
+  \]</span></p>
+<ul>
+<li>This gives a famous result that the optimal price is a constant markup over marginal costs.</li>
+<li>The markup comes from the market power that product differentiation yields.
+<ul>
+<li>As <span class="math inline">\(\epsilon \to \infty\)</span>, the markup goes to 1 and as <span class="math inline">\(\epsilon \to 1\)</span>, the markup goes to infinity.</li>
+</ul></li>
+<li>This means that all firms in the economy charge the same markup, therefore this model cannot speak for why we have seen more and more markup dispersion over time.</li>
+</ul></li>
+</ul>
+</section>
+<section id="can-the-model-explain-the-increase-in-market-concentration" class="level3">
+<h3 class="anchored" data-anchor-id="can-the-model-explain-the-increase-in-market-concentration">Can the model explain the increase in market concentration?</h3>
+<p>High productivity means that a firm has low marginal costs.</p>
+<ul>
+<li>If firms have low marginal costs, they are going to have low prices in this model.</li>
+</ul>
+<p>To calculate concentration, we need to look at the relative demand between goods.</p>
+<p><span class="math display">\[
+\frac{C_1}{C_2} = \left(\frac{P_1}{P_2}\right)^{-\epsilon} \text{ and } P_i = \frac{\epsilon}{\epsilon -1} \text{MC}_i
+\]</span></p>
+<p>Note that <span class="math inline">\(-\epsilon = -\frac{\mu}{\mu-1}\)</span>.</p>
+<p>The relative demand for two firms is:</p>
+<p><span class="math display">\[
+\frac{C_1}{C_2} = \left(\frac{\text{MC}_1}{\text{MC}_2}\right)^{-\frac{\mu}{\mu -1}}
+\]</span></p>
+<ul>
+<li>A rise in productivity difference <strong>does</strong> cause a rise in concentration.</li>
+<li>However, a rise in markups reduces concentration for given productivities.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

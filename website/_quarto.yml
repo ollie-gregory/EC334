@@ -1,0 +1,40 @@
+project:
+  type: website
+
+website:
+  title: "Advanced Macroeconomics"
+  sidebar:
+    style: "floating"
+    search: false
+    contents:
+      - href: pages/part1.qmd
+        text: Growing Differences Between Firms
+      - href: pages/part2.qmd
+        text: Firm Heterogeneity and Market Power
+      - href: pages/part3.qmd
+        text: Productivity Dispersion, Concentration, and Oligopoly
+      - href: pages/part4.qmd
+        text: Large Firms, Production Networks, and Business Cycles
+      - href: pages/part5.qmd
+        text: Market Power and Innovation
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    grid:
+      sidebar-width: 200px
+      margin-width: 200px
+      body-width: 900px
+    html-math-method:
+      method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          tex: {
+            packages: {'[+]': ['color']}
+          }
+        };
+        </script>

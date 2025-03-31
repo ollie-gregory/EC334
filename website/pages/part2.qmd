@@ -1,0 +1,371 @@
+---
+title: Firm Heterogeneity and Market Power
+---
+
+## Rising profit shares
+
+### What are accounting profits?
+
+- Gross profits: total revenues minus cost of goods sold.
+- Operating profits: gross profits minus general and administrative expenses.
+- Net income: operating profits minus interest expenses and taxes.
+    
+The net income of a firm that owns its own capital:
+
+$$
+\pi_{it} = PY_{it} - W_tL_{it}- P_t^mM_{it}
+$$
+    
+### What are economic profits?
+    
+Economic profit is the difference between revenue and fair factor payments.
+
+- At the firm level:
+    
+    $$
+    \pi_{it} = PY_{it}- W_tL_{it}- r_tP_t^kK_{it} - P_t^mM_{it}
+    $$
+    
+    - If a firm owns its own capital, it is forgoing the rent on that capital.
+    - $r_tP_t^kK_{it}$ is the rental rate of capital, multiplied by the price of capital and the quantity of capital.
+- At the macro level (closed or balanced trade economy):
+    
+    $$
+    \pi_t = PY_t - W_tL_t - r_tP_t^kK_t
+    $$
+    
+    - For a closed economy the last term disappears. This is because this represents payments to other firms for materials and so when we add them all up, these terms cancel out.
+- Barkai (2000) shows that these economic profits as a share of GDP are increasing.
+
+### How can we measure profits in the macroeconomy?
+    
+$$
+\pi_t = PY_t - W_tL_t - r_tP_t^kK_t
+$$
+
+- To measure profits, we need data on production, labour income and capital income.
+    - Production: nominal gross value added (national accounts $\approx$ GDP).
+    - Labour income: total compensation of employees (national accounts).
+    - For fair capital payments, we need capital stock, rental rate and the price of capital.
+        - Capital stock: fixed assets from national capital data (excluding housing).
+        - Price of capital: based on investment price index.
+        - Rate of return: cost of corporate bonds/commercial paper borrowing.
+            - Risk adjustment: owning capital depreciates and is risky so it requires compensation.
+            - Derive the capital risk premium from the equity risk premium.
+
+### How has the breakdown of economic profits changed since the 1980s?
+    
+![](Firm%20Heterogeneity%20and%20Market%20Power%20188a84b4cffb8080a236e4adf367f2db/Screenshot_2025-01-28_at_15.15.11.png)
+
+![](Firm%20Heterogeneity%20and%20Market%20Power%20188a84b4cffb8080a236e4adf367f2db/Screenshot_2025-01-28_at_15.14.30.png)
+
+- The first graph shows the return on equity and debt over time (along with the WACC) which has been steadily declining over the last 40 years.
+    - Investors have demanded a lower and lower rate of return since the 80s, this is represented in a declining real interest rate.
+- Depreciation and expected inflation has remained broadly constant.
+- The required rate of return, $r_t$ in the formula, has steadily been falling.
+- We see from the last two graphs that the capital share of GDP has been steadily declining while the pure profit share of GDP has been increasing.
+    - As we saw last week, the labour share of national income has also been declining which contradicts the premise with a cobb-douglas production function that if the capital share decreases, the labour share must increase.
+    - This represents an excess return to owning companies which partly explains the vast increase in stock prices.
+
+## Market power through monopolies
+
+### What are the main sources of pure economic profits in the macroeconomy?
+
+1. Markets can be sufficiently small for firms to interact strategically.
+    - For example through barriers to entry (fixed costs, regulation).
+    - Or market size, for example, convenience shops.
+2. Firms may have technological advantages
+    - Could be the result of innovation.
+3. Firms can differentiate the product that they offer.
+    - This is the most common source of market power in macroeconomic models (BoE, Fed, ECB).
+
+**Dixit-Stiglitz Constant Elasticity of Substitution Aggregator**
+
+- Source of market power comes from **product differentiation** and monopoly.
+- There is heterogeneity in productivity (and thus size) and activity.
+- What are the ingredients of this model?
+    - Consumers have a love of variety which means they want to consume a basket of goods.
+    - Firms produce with a **simple** production function:
+        
+        $$
+        Y_i = A_iL_i
+        $$
+        
+        - The only factors are productivity and labour.
+    - Firms charge a price that’s a markup $\mu_i$ over marginal costs:
+        
+        $$
+        P_i = \mu_i\text{MC}_i \implies P_i = \mu_i\left(\frac{W}{A_i}\right)
+        $$
+        
+        - The marginal cost of producing a good is the wage divided by their productivity, ie, how much it costs to hire an additional person divided by how much that person can produce.
+
+### How do we define aggregate consumption $C$?
+    
+Aggregate consumption is a combination (basket) of many goods:
+
+$$
+C = \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}
+$$
+
+- A firm $i$ produces a unique product as a monopolist and sets price $P_i$.
+- There is a continuum of goods with a measure of 1.
+    - This is an approximation because there are thousands of coffee shops and supermarkets etc.
+- The elasticity of substitution $\epsilon$ measures how similar products are and captures preferences.
+    - As $\epsilon \to \infty$,  we get perfect competition as the more similar different goods are.
+    - As $\epsilon \to 1$, the more difficult it is for consumers to substitute away from other goods.
+- We get diminishing marginal utility from raising $C_i$ to the power of $\frac{\epsilon - 1}{\epsilon} < 1$. This means that holding everything else constant, increasing the consumption of one good, does not increase utility one for one. This captures the love of **variety**.
+- Conversely, we do have **constant returns to scale**. This comes from raising the integral to the power of $\frac{\epsilon}{\epsilon - 1}$. This means that increasing how much of everything we consume, increases utility by the same amount.
+    
+$$
+\begin{split}
+\left[\int_0^1 (\lambda C_i)^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}} &= \left[\lambda^{\frac{\epsilon - 1}{\epsilon}}\int_0^1 C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\ &= \lambda^{(\frac{\epsilon - 1}{\epsilon} \times \frac{\epsilon}{\epsilon - 1})} \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\ &= \lambda \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\ &= \lambda C
+\end{split}
+$$
+
+- All output is consumed: $Y_i = C_i$.
+    - This is because there is no investment in this model.
+
+### What is the household problem?
+    
+The household, beyond deciding how much to work, must decide how much of each good to purchase, which they do by **minimising** their total spending:
+
+$$
+P \times C = \int^1_0 P_i \times C_i di
+$$
+
+Subject to the constraint:
+
+$$
+C = \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}}
+$$
+    
+What is the Lagrangean for this problem?
+
+$$
+\mathcal{L} = \left[\int^1_0 P_i \times C_i di\right] - \lambda \left(\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}}-C\right)
+$$
+
+- Even though every single product is unique, we only have to solve this for one good as the optimisation problem is the same across goods.
+- Households take the price of goods as given.
+
+### How do we solve the optimisation problem?
+    
+$$
+\mathcal{L} = \left[\int^1_0 P_i \times C_i di\right] - \lambda \left(\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}}-C\right)
+$$
+
+First order condition with respect to $C_i$:
+
+$$
+\begin{split}
+\left.\frac{\delta\mathcal{L}}{\delta C_i}\right|_{C_i^*} &= P_i - \lambda\frac{\epsilon}{\epsilon -1}\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1} - 1}\frac{\epsilon - 1}{\epsilon}C_i^{\frac{\epsilon - 1}{\epsilon}-1}= 0\\
+P_i &= \lambda\overbrace{\left(\frac{\epsilon}{\epsilon -1}\times\frac{\epsilon -1}{\epsilon}\right)}^{=1}C_i^{\overbrace{\frac{\epsilon-1}{\epsilon} - 1}^{=-1/\epsilon}}\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}-1}\\
+P_i^{-\epsilon} &= \lambda ^{-\epsilon}C_i\left[\int^1_0C_i^{\frac{\epsilon-1}{\epsilon}}di\right]^{-\frac{\epsilon}{\epsilon - 1}}\\
+P_i^{-\epsilon} &= \lambda^{-\epsilon}C_iC^{-1} \text{ where } C = \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}}di\right]^{\frac{\epsilon}{\epsilon - 1}} \\
+C_i &=\lambda^{\epsilon}P_i^{-\epsilon}C
+\end{split}
+$$
+    
+- This is saying how much of good $i$ the household consumes depends inversely on the price of good $i$ and how many baskets are consumed, $C$.
+    - The more baskets are consumed, the more of good $i$ is consumed, but the higher the price of good $i$, the lower the consumption of it is.
+
+To get rid of the Lagrange multiplier, $\lambda$, we use the relative demand between any two goods:
+
+$$
+\frac{C_i}{C_1} = \frac{\lambda^\epsilon P_i^{-\epsilon}C}{\lambda^\epsilon P_1^{-\epsilon}C} \implies \frac{C_i}{C_1} = \left(\frac{P_i}{P_1}\right)^{-\epsilon}
+$$
+
+We can now insert this result the household's total spending on consumption goods, $\int^1_0 P_i \times C_i di$:
+
+$$
+\begin{split}
+\int^1_0 P_iC_i di &= \int_0^1P_iC_1\left(\frac{P_i}{P_1}\right)^{-\epsilon}di\\
+\int^1_0 P_iC_i di &= C_1P_1^\epsilon \int_0^1P_i^{1-\epsilon}di\\
+C_1 &= P_1^{-\epsilon}\left(\frac{\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\right)
+\end{split}
+$$
+
+- This equation tells us that the demand of good 1 is a function of the price of good 1.
+- The second part of the equation has total spending on top which means that the more is spent in total, the more good 1 is consumed. The bottom part is a measure of overall prices in the economy. The more expensive things are in the economy, for a given price of good 1, the more of it is consumed.
+
+The definition of the price index $P$ is:
+
+$$
+P_t \equiv \frac{\int_0^1 P_iC_idi}{C}
+$$
+
+To find the price index, we can insert the demand for individual goods $i$:
+
+$$
+\begin{split}
+P &= \frac{\int_0^1 P_iC_idi}{\left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}}\\
+&= \frac{\int_0^1 P_i\left(\frac{P_i^{-\epsilon}\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\right)di}{\left[ \int_0^1 \left(\frac{P_i^{-\epsilon}\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\right)^{\frac{\epsilon - 1}{\epsilon}} di \right]^\frac{\epsilon}{\epsilon -1}} \\
+&= \frac{X\int_0^1P_i \times P_i^{-\epsilon} di}{X^{\frac{\epsilon - 1}{\epsilon }\frac{\epsilon}{\epsilon - 1}}\left[\int_0^1 P_i^{1-\epsilon}\right]^{\frac{\epsilon}{\epsilon - 1}}} \text{ where } X\equiv \frac{\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\\
+&= \frac{\int_0^1 P_i^{1-\epsilon} di}{\left[ \int_0^1 P_i^{1-\epsilon} di \right]^{\frac{\epsilon}{\epsilon - 1}}}\\
+&= \left[ \int_0^1P_i^{1-\epsilon} di \right]^{\frac{1}{1-\epsilon}}
+\end{split}
+$$
+
+We can insert this back into the demand function to get the final demand function in terms of the price of an individual good compared to everything else:
+
+$$
+\begin{split}
+C_1 &= P_1^{-\epsilon}\left(\frac{\int_0^1 P_iC_idi}{\int_0^1 P_i^{1-\epsilon}di}\right)\\
+C_1 &= P_1^{-\epsilon} CP \frac{1}{P^{1-\epsilon}}\\
+C_1 &= \left(\frac{P_1}{P}\right)^{-\epsilon}C
+\end{split}
+$$
+
+Finally, we can insert the fact that the price $P_1$ is equivalent to the marginal cost of production multiplied by a markup $\mu_1$.
+
+$$
+Y_1 = C_1 = \left(\frac{W}{A_1}\times\frac{\mu_1}{P}\right)^{-\epsilon}C
+$$
+
+- If a firm’s productivity increases, it will produce more.
+- If a firm’s markup increases, it will produce less.
+- The effect of productivity or markup increases with the elasticity of substitution.
+
+## Macroeconomic effects of market power
+
+### What is the link between markup and wages?
+    
+Starting from the consumption basket, we can insert the demand function:
+
+$$
+C = \left[\int_0^1C_i^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}} = \left[\int_0^1\left(\left(\frac{W}{A_i}\times\frac{\mu_i}{P}\right)^{-\epsilon}C\right)^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\
+$$
+
+$$
+\begin{split}
+C &= \left[\int_0^1\left(\left(\frac{W}{A_i}\times\frac{\mu_i}{P}\right)^{-\epsilon}\right)^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}} C^{\frac{\epsilon - 1}{\epsilon} \times \frac{\epsilon}{\epsilon - 1}}\\
+1 &=\left[\int_0^1\left(\left(\frac{W}{A_i}\times\frac{\mu_i}{P}\right)^{-\epsilon}\right)^{\frac{\epsilon - 1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon - 1}}\\
+1 &= \left(\frac{W}{P}\right)^{-\epsilon}\left[\int_0^1\left(\frac{A_i}{\mu_i}\right)^{\epsilon - 1}di\right]^{\frac{\epsilon}{\epsilon - 1}}\\
+\left(\frac{W}{P}\right)^{\epsilon} &= \left[\int_0^1\left(\frac{A_i}{\mu_i}\right)^{\epsilon - 1}di\right]^{\frac{\epsilon}{\epsilon - 1}}\\
+\frac{W}{P} &= \left[\int_0^1\left(\frac{A_i}{\mu_i}\right)^{\epsilon - 1}di\right]^{\frac{1}{\epsilon - 1}} 
+\end{split}
+$$
+
+- The real wage increases with how productive firms are.
+
+If we say that all firms have the same markup, $\mu_i = \mu$, we get:
+
+$$
+\frac{W}{P} = \frac{1}{\mu}\left[\int_0^1(A_i)^{\epsilon - 1} di\right]^{\frac{1}{\epsilon - 1}}
+$$
+
+- This means the real wage is a function of average productivity divided by the markup. Meaning that **higher markups cause a markdown of wages.**
+- This is because higher markups reduce the demand for goods, which reduces the demand for labour, which reduces the equilibrium wage.
+
+### What is the link between markup and output?
+    
+For now, assume that there is a constant labour supply $L^s$, such that labour market equilibrium gives:
+
+$$
+L^s = \int_0^1 L_idi \implies L_s = \int_0^1Y_i/A_i di \text{ where } Y_i = A_iL_i
+$$
+
+Substituting in the demand function $(Y_i = C_i)$:
+
+$$
+L^s = \int_0^1 \textcolor{red}{\left(\frac{W}{A_i} \times\frac{\mu_i}{P}\right)^{-\epsilon}}\frac{\textcolor{red}{C}}{A_i}di
+$$
+
+Inserting the real wage:
+
+$$
+\begin{split}
+L^s &= \int_0^1 \left(\frac{W}{A_i} \times\frac{\mu_i}{P}\right)^{-\epsilon}\frac{C}{A_i}di\\
+L^s &= C\int_0^1 \left( \left[\int_0^1\left(\frac{A_i}{\mu_i}\right)^{\epsilon - 1}di\right]^{\frac{1}{\epsilon - 1}} \frac{\mu_i}{A_i}\right)^{-\epsilon} \frac{1}{A_i} di
+\end{split}
+$$
+
+Let $\mu_i = \mu$:
+
+$$
+\begin{split}
+L^s &= C\int_0^1 \left( \overbrace{\left[\int_0^1\left({A_i}\right)^{\epsilon - 1}di\right]^{\frac{1}{\epsilon - 1}}}^{=A} \frac{1}{A_i}\right)^{-\epsilon} \frac{1}{A_i} di\\
+\frac{L^s}{C}&= \int_0^1\left(A\times \frac{1}{A_i}\right)^{-\epsilon}\frac{1}{A_i} di\\
+& = A^{-\epsilon}\int_0^1A_i^{\epsilon -1}di\\
+&= A^{-\epsilon}\left(\left[\int_0^1A_i^{\epsilon -1}di\right]^\frac{1}{\epsilon - 1}\right)^{\epsilon - 1}\\
+&= A^{-\epsilon} A^{\epsilon - 1}\\
+&=A^{-1}\\
+C &= L^s\left[\int_0^1 (A_i)^{\epsilon -1} di\right]^{\frac{1}{\epsilon - 1}}
+\end{split}
+$$
+
+- This tells us that, when markups are constant, there is no direct effect of the markup on output.
+
+### What is the link between markup and the labour share?
+    
+To get the labour share of output, we divide the real (nominal) wage payments by real (nominal) GDP:
+
+$$
+\frac{WL^s}{Y} = \frac{L^s\frac{1}{\mu} \left[ \int_0^1 A_i^{\epsilon -1}di\right]^\frac{1}{\epsilon - 1}}{L^s\left[ \int_0^1 A_i^{\epsilon -1}di\right]^\frac{1}{\epsilon - 1}} = \frac{1}{\mu}
+$$
+
+- Intuitively, markups cause a part of income to go to profits and less to the factors of production.
+- The mechanism for this is that higher markups reduce labour demand, and therefore for the labour market to clear, the wage has to be lower.
+- Formally, markups cause a **wedge** between wage and marginal product.
+- This generalises to the other factors of production too: higher markups reduce the interest rate on capital.
+
+## Concentration, productivity and markup dispersion
+
+### How do firms choose their markup?
+    
+So far, we have taken markups as exogenous, but there must be some profit maximising markup that firms would want to choose.
+
+- Assume there are no fixed costs, meaning that the firm’s objective function is,
+    
+    $$
+    \pi_i = (P_i - \text{MC}_i)C_i
+    $$
+    
+- The constraint is the demand function:
+    
+    $$
+    C_i = \left(\frac{P_i}{P}\right)^{-\epsilon}C
+    $$
+    
+- What is the solution to the optimisation problem?
+    
+    $$
+    \frac{\delta}{\delta P_i}(P_i - \text{MC}_i)\left(\frac{P_i}{P}\right)^{-\epsilon}Y = (1-\epsilon)Y\frac{P_i^{-\epsilon}}{P^{-\epsilon}} + \epsilon \frac{\text{MC}_i Y}{P^{-\epsilon}}P_i^{-\epsilon -1}
+    $$
+    $$
+    \begin{split}
+    0 &= (1-\epsilon)Y\frac{P_i^{-\epsilon}}{P^{-\epsilon}} + \epsilon \frac{\text{MC}_i Y}{P^{-\epsilon}}P_i^{-\epsilon -1}\\
+    (\epsilon - 1) P_i^{-\epsilon}&= \epsilon \text{MC}_iP_i^{-\epsilon -1}\\
+    \epsilon -1 &= \epsilon \text{MC}_iP_i^{-1}\\
+    P_i &= \frac{\epsilon}{\epsilon -1}\text{MC}_i
+    \end{split}
+    $$
+    
+    - This gives a famous result that the optimal price is a constant markup over marginal costs.
+    - The markup comes from the market power that product differentiation yields.
+        - As $\epsilon \to \infty$, the markup goes to 1 and as $\epsilon \to 1$, the markup goes to infinity.
+    - This means that all firms in the economy charge the same markup, therefore this model cannot speak for why we have seen more and more markup dispersion over time.
+
+### Can the model explain the increase in market concentration?
+    
+High productivity means that a firm has low marginal costs.
+
+- If firms have low marginal costs, they are going to have low prices in this model.
+
+To calculate concentration, we need to look at the relative demand between goods.
+
+$$
+\frac{C_1}{C_2} = \left(\frac{P_1}{P_2}\right)^{-\epsilon} \text{ and } P_i = \frac{\epsilon}{\epsilon -1} \text{MC}_i
+$$
+
+Note that $-\epsilon = -\frac{\mu}{\mu-1}$.
+
+The relative demand for two firms is:
+
+$$
+\frac{C_1}{C_2} = \left(\frac{\text{MC}_1}{\text{MC}_2}\right)^{-\frac{\mu}{\mu -1}}
+$$
+
+- A rise in productivity difference **does** cause a rise in concentration.
+- However, a rise in markups reduces concentration for given productivities.

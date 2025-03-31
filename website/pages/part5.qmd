@@ -1,0 +1,221 @@
+---
+title: Market power and innovation
+---
+
+### What drives growth in the long run?
+
+**Productivity.**
+
+- Productivity grows because firms invest in R&D.
+- R&D is focused on the development of higher quality products and better production methods.
+    - Higher quality products and higher productivity can be thought of as one and the same.
+- The optimal level of R&D depends on profitability, so market power should allow more investment and therefore should raise growth?
+
+## Growth through creative destruction
+
+### What is the Schumpeterian approach to modelling firm heterogeneity?
+    
+- Innovating firms become market leaders, displacing others.
+- Innovation is a random process: no amount of investment guarantees success.
+- Large firms are firms with a history of successful innovation.
+
+The modern growth theory for creative destruction (Aghion & Howitt 1992) builds on Schumpeter (1942).
+
+### What is the model environment?
+    
+- There are many products in the economy, where each product is produced by only a single firm.
+    - The firm that produces that product changes over time through innovation.
+    - Each good is produced by only one firm, but firms can produce multiple goods.
+        - This means that there is no such thing as firm level productivity.
+- Innovation can come from market entrants or from competitors.
+- Innovation means that the incumbent stops producing that good — **creative destruction.**
+- Products are imperfect substitutes meaning that the firm that produces them has market power.
+- The incentives for entrants and competitors to innovate rise with market power.
+- Model equations
+    
+    Aggregate consumption is a combination of many goods:
+    
+    $$
+    C_t = \left[\int_0^1C_{ij}^{\frac{\epsilon - 1}{\epsilon}}dj\right]^{\frac{\epsilon}{\epsilon - 1}}
+    $$
+    
+    Firms produce each good with a simple production function and all output is consumed.
+    
+    $$
+    Y_{ijt} = A_{ijt}L_{ijt}\\ Y_{ijt} = C_{jt}
+    $$
+    
+    A firm $i$ produces a unique product as a monopolist and sets price $P_i$ which is a markup $\mu$ over marginal cost:
+    
+    $$
+    \mu = \frac{\epsilon}{\epsilon - 1}
+    $$
+    
+### How do we model innovation?
+    
+Innovation improves the productivity with which a random good is produced. 
+
+- Let firm $i$ innovate on a good that firm $h$ used to produce:
+    
+    $$
+    A_{ijt} = (1+\lambda) A_{hjt-1}
+    $$
+    
+    - We call $\lambda$  the innovation step. A larger lambda means greater quality innovation.
+- If firm $i$ is an entrant, it enters the economy.
+- If firm $i$ is an incumbent, it expands its portfolio of products.
+- Firm $h$ is the incumbent that shrinks or exits, depending on its size — **creative destruction.**
+- What is the rate of creative destruction?
+    
+    The rate of creative destruction, $\tau$, is the probability that a product is replaced.
+    
+    $$
+    \tau = e + x
+    $$
+    
+    - $e$ is creative destruction by entrants, and $x$ is creative destruction by incumbents.
+
+### How can we get the growth rate in this economy?
+    
+Starting with the CES aggregator, we have consumption,
+
+$$
+C_t = \left[\int_0^1 C_{jt}^\frac{\epsilon - 1}{\epsilon} dj\right]^\frac{\epsilon}{\epsilon - 1} = \left[\int_0^1 (A_{ijt}L_{ijt})^\frac{\epsilon - 1}{\epsilon} dj\right]^\frac{\epsilon}{\epsilon - 1}
+$$
+
+If we allow all firms to employ the same number of people (apparently this is an easy assumption to drop), we can simplify this to,
+
+$$
+C_t = L\left[\int_0^1 A_{ijt}^\frac{\epsilon - 1}{\epsilon}dj\right]^\frac{\epsilon}{\epsilon - 1}
+$$
+$$
+\implies \ln(C_t) = \ln (L)+ \frac{\epsilon}{\epsilon -1} \ln \left[\int_0^1A_{ijt}^\frac{\epsilon - 1}{\epsilon}dj\right]
+$$
+
+This gives us the growth rate of the economy as,
+
+$$
+g = \tau \times \lambda
+$$
+
+- Derivation
+    
+    $$
+    \begin{split}
+    \frac{\delta \ln (C_t)}{\delta t} &= \frac{\delta}{\delta t}\left(\frac{\epsilon}{\epsilon -1} \ln \underbrace{\left[\int_0^1A_{ijt}^\frac{\epsilon - 1}{\epsilon}dj\right]}_{A_t}\right)\\ &= \frac{\epsilon}{\epsilon - 1}\frac1{A_t}\frac{\delta}{\delta t}\left[\int_0^1A_{ijt}^\frac{\epsilon - 1}{\epsilon}dj\right]
+    \end{split}
+    $$
+    
+    A fraction $\tau$ of all products get a productivity improvement at each time $t$. This means that $1 - \tau$ products don’t have any change in productivity.
+    
+    $$
+    \frac{\delta \ln(C_t)}{\delta t}= \frac{\epsilon}{\epsilon - 1}\frac1{A_t}\frac{\delta}{\delta t}\left[\int_0^\tau A_{ijt}^\frac{\epsilon - 1}{\epsilon}dj\right]
+    $$
+    
+    For every product that experience a productivity increase, their productivity increases by $\lambda$.
+    
+    $$
+    \begin{split}
+    \frac{\delta \ln(C_t)}{\delta t}&= \frac{\epsilon}{\epsilon -1}\frac{1}{A_t}\int_0^\tau\frac{\delta}{\delta t}A_{ijt}^\frac{\epsilon - 1}{\epsilon} dj\\
+    &=\frac{\epsilon}{\epsilon -1}\frac{1}{A_t}\int_0^\tau\frac{\epsilon - 1}{\epsilon} A_{ijt}^\frac{-1}{\epsilon} \times \frac{\delta A_{ijt}}{\delta t} dj\\
+    &=\frac{\epsilon}{\epsilon -1}\frac{1}{A_t}\int_0^\tau\frac{\epsilon - 1}{\epsilon} A_{ijt}^\frac{-1}{\epsilon} \times \red{\lambda A_{ijt}} dj \text { from } A_{ijt+1} = (1+\lambda )A_{ijt}
+    \\&= \frac{\epsilon}{\epsilon - 1}\frac{\epsilon - 1}{\epsilon}\frac{1}{A_t}\lambda\int_0^\tau  A_{ijt}^\frac{\epsilon - 1}{\epsilon} dj \\
+    &= \lambda \left[\frac{1}{A_t}\int_0^\tau A_{ijt}^{\frac{\epsilon - 1}{\epsilon}}dj\right] \text{ where } \left[\frac{1}{A_t}\int_0^\tau A_{ijt}^{\frac{\epsilon - 1}{\epsilon}}dj\right] = \tau\\
+    &= \tau \times \lambda
+    \end{split}
+    $$
+        
+### What are the key takeaways?
+    
+The creative destruction model means that growth is disruptive.
+
+- The growth rate is proportional to the fraction of products that is replaced,
+    
+    $$
+    g = \tau \times \lambda
+    $$
+    
+- Replacements come from competitors $x$ or new firms $e$.
+- The replacement of a product is disruptive with old firms shrinking or exiting.
+- To measure creative destruction, we can use measures of employment disruption:
+    - Percentage of firms that enter and exit (or size-weighted).
+    - Reallocation rate (sum of job creation and destruction rates).
+
+## Creative destruction and market power
+
+### How do incumbents innovate?
+    
+To improve a product, incumbents must invest in R&D.
+
+- To develop a better product with probability $x_i$, they employ researchers,
+    
+    $$
+    \text{rd}_i = x_i^\psi\times \phi
+    $$
+    
+    where $\psi> 1$ and $\phi> 0$ and $\text{rd}$ is the number of researchers hired.
+    
+- Entrants are entrepreneurs who have to hire researchers too:
+    
+    $$
+    \text{rd}^e = e^\psi \times \phi^e
+    $$
+    
+- When producing a product, firms earn profits,
+    
+    $$
+    \pi_i = (p_i - \text{mc}_i) y_i
+    $$
+    
+    - Where profits are increasing in markup.
+
+**What is the incumbent optimisation problem?**
+    
+The incumbent wants to maximise the firm’s value by choosing the right level of innovation.
+
+- Firms discount the future at rate $\rho$, and will still produce a given good at time $t$ with probability $1-\tau$.
+    
+    $$
+    V_i = \sum_{t=0}^\infty\left(\frac1{1+\rho}(1-\tau)\right)^t \pi_i
+    $$
+    
+- Using the formula for an infinite geometric series, we get,
+    
+    $$
+    V_i = \frac{\pi_i}{1-\frac{1-\tau}{1+\rho}}
+    $$
+    
+    - The value of becoming a producer increases in profits and decreases in $\tau$ and $\rho$.
+- The firms maximisation problem is therefore,
+    
+    $$
+    \Pi_i = \max_{x_i}(x_iV_i - x_i^\psi\phi), \\\Pi^e = \max_{e}(eV_e - e^\psi\phi^e)
+    $$
+    
+    - Firms are maximising the value from innovating, multiplied by the probability that it occurs, minus the cost of the R&D for the innovation.
+- Taking the first order conditions tells us that the optimal innovation rate and entry rate therefore increases in profits:
+    
+    $$
+    \left .\frac{\delta}{\delta x_i}\right|_{x_i^*}\left(x_i V_i - x_i^\psi\phi\right) = 0\\V_i - \psi x_i^{\psi - 1}\phi = 0 \implies
+    x_i^* = \left(\frac{V_i}{\phi}\right)^{\frac{1}{\psi - 1}}
+    $$
+    $$ 
+    \left .\frac{\delta}{\delta e}\right|_{e^*}\left(e V_e - e^\psi\phi^e\right) = 0\\V_e - \psi e^{\psi - 1}\phi^e = 0 \implies
+    e^* = \left(\frac{V_e}{\phi^e}\right)^{\frac{1}{\psi - 1}}
+    $$
+    
+- What is the total innovation by incumbents and entrants then?
+    
+    $$
+    \tau = \int x_i di + e
+    $$
+    
+    where $\tau$  is total innovation, given by the continuum of probabilities chosen by incumbents and the innovation by entrepreneurs.
+          
+:::{.callout-note}
+Given that growth increases in creative destruction $\tau,$ that means that profits drive growth!
+
+$$
+\pi\uparrow \implies V_i = \frac{\pi_i}{1-\frac{1-\tau}{1+\rho}} \uparrow \implies x_i^* = \left(\frac{V_i}{\phi}\right)^{\frac{1}{\psi - 1}} \uparrow \implies \tau = \int x_i di + e\uparrow \implies g = \tau \times \lambda \uparrow
+$$
+:::

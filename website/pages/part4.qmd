@@ -1,0 +1,339 @@
+---
+title: Large firms, production networks, business cycles
+---
+
+### Is there really such a thing as an aggregate shock?
+
+- Macroeconomy is made up of millions of firms and hundreds of sectors.
+- Could shocks to individual firms or sectors drive business cycles?
+
+![](Large%20firms,%20production%20networks,%20business%20cycles%20196a84b4cffb800eaadccb96c71ea526/Screenshot_2025-02-10_at_09.46.42.png)
+
+- Growth is not distributed equally and firms are very heterogeneous.
+- Soap industry vs automobile industry
+    
+    ![](Large%20firms,%20production%20networks,%20business%20cycles%20196a84b4cffb800eaadccb96c71ea526/Screenshot_2025-02-10_at_11.21.38.png)
+    
+    - The blue line represents the soap industry that was unaffected by the financial crisis for example, while the dashed line represents the automobile industry which was significantly affected by the financial crisis.
+
+## Lucas diversification argument (1977)
+
+### What is the Lucas diversification argument?
+    
+The Lucas diversification argument posits that micro shocks cannot affect the macroeconomy because they end up all cancelling out with each other.
+    
+### What is the model environment?
+
+- The economy is composed of $K$ production entities.
+    - Could be firms, sectors, regions, … — something that is at the sub-aggregate level.
+- Factors are supplied inelastically, which means that only productivity shocks can affect the economy.
+- Entity $k \in K$ is subject to idiosyncratic and i.i.d. output $a_{k,t}$.
+- GDP is found by summing the output of all firms.
+    
+    $$
+    Y_t = \sum_{k\in K} a_{k,t}
+    $$
+    
+- We abstract from elastically supplied inputs and nominal rigidities, etc.
+
+### What is the GDP volatility in this economy?
+    
+Let the idiosyncratic shocks be as follows:
+
+$$
+\frac{\Delta a_{k,t}}{a_{k,t-1}} = \frac{a_{k,t} - a_{k,t-1}}{a_{k,t-1}} = \sigma_{k}\epsilon_{k,t}
+$$
+
+- Where $\epsilon_{k,t}$ has mean $0$ and variance $1$.
+    - $\sigma_k$ measures the size of the shock and represents the overall standard deviation of firm growth.
+
+GDP growth is:
+
+$$
+\frac{\Delta Y_t}{Y_{t-1}} = \frac{1}{Y_{t-1}}\sum_{k\in K}\Delta a_{k,t} = \sum_{k \in K}\frac{a_{k,t-1}}{Y_{t-1}} \sigma_k \epsilon_{k,t}
+$$
+
+- What is the standard deviation of GDP growth?
+    
+    Shocks are independent and uncorrelated so $\sigma_Y = \sqrt{\text{var}(\frac{\Delta Y_t}{Y_{t-1}})}$ is,
+    
+    $$
+    \sigma_Y = \left(\sum_{k \in K}\sigma_k^2\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2\right)^{\frac12}
+    $$
+    
+    - Mathematical derivation
+        
+        We use the formula for calculating the variance,
+        
+        $$
+        \text{var}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2
+        $$
+        
+        We will also use the fact that $\epsilon_{k,t}$ has mean $0$ and variance $1$.
+        
+        $$
+        \begin{split}
+        \mathbb{E}\left[\left( \sum_{k \in K}\frac{a_{k,t-1}}{Y_{t-1}} \sigma_k \epsilon_{k,t} \right)^2\right] - \mathbb{E}\left[\sum_{k \in K}\frac{a_{k,t-1}}{Y_{t-1}} \sigma_k \epsilon_{k,t}\right]^2
+        \end{split}
+        $$
+        
+        Because $\epsilon_{k,t}$ has mean $0$, the right hand side goes to $0$. The next stage is to expand the square on the left hand side, which we do using the following formula:
+        
+        $$
+        \left(\sum_{k=1}^N x_k\right)^2 = \sum_{k=1}^N x_k \times \sum_{j=1}^N x_j = \sum_{k=1}^N \sum_{j=1}^N x_k  x_j
+        $$
+        
+        When we apply this to the expression inside the expectation term, we get,
+        
+        $$
+        \left( \sum_{k \in K}\frac{a_{k,t-1}}{Y_{t-1}} \sigma_k \epsilon_{k,t} \right)^2 =  \sum_{j \in J}\sum_{k \in K}\frac{a_{k,t-1}}{Y_{t-1}} \sigma_k \epsilon_{k,t} \frac{a_{j,t-1}}{Y_{t-1}} \sigma_j \epsilon_{j,t}
+        $$
+        
+        Using the fact that $\epsilon_{k,t}$ has mean zero, along with the fact that $\mathbb{E}[X+Y] = \mathbb{E}[X] + \mathbb{E}[Y]$, we can therefore reduce the left hand side of this whole expression to,
+        
+        $$
+        \mathbb{E}\left[\sum_{k\in K} \sigma_k^2\epsilon_{k,t}^2\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2\right]
+        $$
+        
+        This is because all of the terms where $k \neq j$, take the expectation of different $\epsilon_{k,t}$ meaning that the overall expectation of those terms is $0$, leaving only the terms were $k = j$.
+        
+        We now use two more rules of expectations which are that the expectation of a constant is the constant, $\mathbb{E}[\lambda] = \lambda$, and that the expectation of a product is equal to the product of expectations, $\mathbb{E}[XY] = \mathbb{E}[X]\mathbb{E}[Y]$.
+        
+        $$
+        \begin{split}
+        \mathbb{E}\left[\sum_{k\in K} \sigma_k^2\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2\right]\mathbb{E}[\epsilon_{k,t}^2] &= \left[\sum_{k\in K} \sigma_k^2\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2\right](\mathbb{E}[\epsilon_{k,t}^2] + \mathbb{E}[\epsilon_{k,t}]^2)\\
+        &= \left[\sum_{k\in K} \sigma_k^2\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2\right]\text{var}(\epsilon_{k,t})
+        \\
+        &=\sum_{k\in K} \sigma_k^2\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2
+        \end{split}
+        $$
+        
+        This once again uses the fact that $\mathbb{E}[\epsilon_{k,t}] = 0$ and therefore adds $0$ to the term $\mathbb{E}[\epsilon_{k,t}^2]$ and allows us to use the formula for the variance. This is useful because we know that the variance of $\epsilon_{k,t}$ is $1$. All that is left therefore is to take the square root to arrive at the standard deviation for GDP growth.
+        
+        $$
+        \sigma_Y = \left(\sum_{k \in K}\sigma_k^2\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2\right)^{\frac12}
+        $$
+        
+
+:::{.callout-warning title="Critical assumption"}
+Assume that all firms/production entities have the same volatility and size.
+:::
+
+This reduces the volatility of GDP growth to,
+
+$$
+\begin{split}
+\sigma_Y &= \left(\sum_{k \in K}\sigma_k^2\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2\right)^{\frac12}\\
+&= \left(\sum_{k \in K}\sigma_k^2\left[\frac{1}{N}\right]^2\right)^{\frac12}\\
+&= \frac{\sigma}{\sqrt{N}} \text{ where } N = |K|
+\end{split}
+$$
+
+- Empirically, $N$ is large, so the effect of idiosyncratic shocks is very small.
+    - Individual shocks average out to $0$.
+    - For example, across 473 NAICS manufacturing industries, the average volatility is 9% $(\sigma = 0.09)$.
+        
+        $$
+        \hat{\sigma}_Y = \frac{0.009}{\sqrt{473}} = 0.0041
+        $$
+        
+        - This means that according to this model, idiosyncratic shocks cause a volatility of 0.41% while in reality, the GDP volatility of the manufacturing industry is 3%.
+
+## Granular shocks
+
+In most economic models, microeconomic shocks have no aggregate effects, this is because:
+
+- They assume a very large number of identical and small firms.
+- Idiosyncratic shocks cancel out by the law of large numbers.
+
+In practice though, some firms are very large: e.g. Nokia in 2003 made up 26% of Finnish private sector GDP.
+
+### What is the effect of heterogeneous firm size on the diversification result?
+    
+If we allow for differences in firm size, but enforce the same volatility, we find that GDP volatility is the firm volatility multiplied by the square root of the Herfindahl (HHI) Index.
+
+$$
+\begin{split}
+\sigma_Y &= \left(\sum_{k \in K}\sigma_k^2\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2\right)^{\frac12}\\
+&= \sigma \left(\sum_{k \in K}\left[\frac{a_{k,t-1}}{Y_{t-1}}\right]^2\right)^{\frac12}\\
+&= \sigma h \text{ where $h$ is $\sqrt{\text{HHI}}$}
+\end{split}
+$$
+
+Gabaix (2011) found that the Herfindahl declines slowly in $N$ if firm size distribution is fat tailed.
+
+**In the data**
+    
+![](Large%20firms,%20production%20networks,%20business%20cycles%20196a84b4cffb800eaadccb96c71ea526/Screenshot_2025-02-13_at_17.25.16.png)
+
+- Multiplying the HHI by an average firm volatility of 12% from Axtell (2001) gives a GDP volatility of about 1%.
+
+## Hulten’s theorem
+
+### What is GDP?
+    
+So far, we have defined GDP as the sum of i.i.d. outputs $a$. This is because in macroeconomics, we typically think of an aggregate production function $Y = AF(K,L)$. However, at the micro level, there are many ‘production recipes’:
+
+$$
+Y_i = A_i F(K_i, L_i, \textcolor{red}{M_i})
+$$
+
+where $M_i$ represents intermediate inputs. These intermediate inputs introduce a source of **shock propagation** for micro shocks to affect the macro economy.
+    
+### What is Hulten’s Theorem (1978)?
+    
+Consider an **efficient** economy, meaning that welfare theorems apply. Then, under minimal assumptions, the following holds:
+
+$$
+\frac{d \log(Y)}{d \log(z_i)} = \lambda_i
+$$
+
+Here, $\lambda_i$ is a firm or sector’s **Domar weight**:
+
+$$
+\lambda_i = \frac{p_iy_i}{\text{GDP}}
+$$
+
+:::{.callout-note title="Domar weights"}
+The sum of all Domar weights should be greater than one because GDP represents value added, but firms use a lot of intermediate goods in their production, i.e., firm output is not the same as firm value added.
+:::
+    
+### What is the derivation for Hulten’s theorem?
+
+**What is the model environment**
+
+- The economy consists of $n$ competitive firms/industries.
+- Each industry produces using,
+    - $n$ intermediate inputs.
+    - $m$ primary factors.
+- The production function has constant returns to scale and can be made up of any combination of inputs.
+    
+    $$
+    y_i = z_if(x_{i1},...,x_{in};I_{i1},..., I_{im})
+    $$
+    
+- A representative household has preferences over all goods.
+    
+    $$
+    Y = u(c_1,...,c_n)
+    $$
+    
+    - This is also homogeneous of degree 1, meaning that multiplying all inputs by a constant, has the effect of multiplying the output by the same constant.
+- Of a firms output $y_i$, $c_i$ of it is consumed as final goods, and $x_i$ is used as intermediate goods.
+- Households are endowed with $h_k$ units of primary good $k$.
+
+As the welfare theorems hold, we can analyse this from the social planner’s perspective in order to simplify the problem.
+
+**What is the social planner’s problem?**
+    
+The social planner chooses consumption, factor, and intermediate usage to maximise utility.
+
+$$
+Y = \max_{c_i, I_{ik}, x_{ij}} u(c_1,...,c_n) \text{ s.t.}
+$$
+$$
+c_i + \sum_{j=1}^n x_{ji} = z_i f(x_{i1},...,x_{in}; I_{i1},...,I_{im}) \text{ where } i = 1,...,n
+$$
+$$
+\sum_{i=1}^n I_{ik} = h_k \text{ where } k = 1,...,m
+$$
+
+The constrained optimisation problem can therefore be written as,
+
+$$
+\mathcal{L} = u(c_1,...,c_n) - \sum_i^n \eta_i \left[c_i + \sum_{j=1}^n x_{ji} = z_i f(x_{i1},...,x_{in}; I_{i1},...,I_{im})\right] - \sum_{i=1}^m \omega_j \left[\sum_{i=1}^n I_{ik} - h_k\right]
+$$
+    
+**How does GDP change when good $i$ has a higher productivity?**
+    
+Using the envelope theorem, in the neighbourhood of the efficient allocation, we can say that $\frac{dY}{d z_i} = \frac{\delta\mathcal{L}}{\delta z_i}$:
+
+$$
+\frac{\delta\mathcal{L}}{\delta z_i} = \eta_i f(x_{i1},...,x_{in};I_{i1},..., I_{im}) = \frac{\eta_iy_i}{z_i}
+$$
+
+To express this as an elasticity, in percentage terms,
+
+$$
+\frac{d \log Y}{d\log z_i} = \frac{d Y}{d z_i}\frac{z_i}{Y} = \frac{\eta_i y_i}{z_i} \frac{z_i}{Y} = \frac{\eta_i y_i}{Y}
+$$
+    
+**What is the first order condition for the consumption of good $i$?**
+    
+$$
+\left.\frac{\delta \mathcal{L}}{\delta c_i}\right|_{c_i^*} = \frac{\delta u}{\delta c_i} - \eta_i = 0
+$$
+$$
+\frac{\delta u}{\delta c_i} = \eta_i
+$$
+    
+**How can we use the household problem to get at the marginal utility of good $i$?**
+    
+As the welfare theorems hold, the household problem is the same as the social planner’s problem.
+
+$$
+Y = \max_{c_i, I_{ik}, x_{ij}} u(c_1, ... , c_n) \text{ s.t. }\sum_{j=1}^n p_ic_i = \sum_{k=1}^m w_k h_k
+$$
+
+- What is the first order condition from the decentralised equilibrium problem?
+    
+    Langrangian:
+    
+    $$
+    \mathcal{L} = u(c_1,...,c_n) - \phi \left(\sum_{j=1}^n p_ic_i - \sum_{k=1}^m w_k h_k \right)
+    $$
+    
+    FOC:
+    
+    $$
+    \left .\frac{\delta \mathcal{L}}{\delta c_i}\right|_{c_i^*} = \frac{\delta u}{\delta c_i} - \phi p_i = 0
+    $$
+    $$
+    \frac{\delta u}{\delta c_i} = \phi p_i = \eta_i
+    $$
+    
+
+:::{.callout-note}
+This means we can rewrite $\frac{d \log Y}{d\log z_i} = \frac{\eta_i y_i}{Y}$ as $\frac{\phi p_i y_i}{Y}$.
+:::
+    
+**How can we use Euler’s homogeneous function theorem to relate GDP to utility?**
+
+Euler’s homogeneous function theorem for 1st degree homogeneity says that,
+
+$$
+\sum_{j \in h} f_j'(h) \times j = f(h)
+$$
+
+where $h$ is a full set of variables,  $f_j'(h)$ is the partial derivative of $f$ with respect to $h$.
+
+- Example
+    
+    $$
+    y = k^\alpha l^{1-\alpha}
+    $$
+    $$
+    \begin{split}
+    &\text{(1): }y_k' = \alpha k^{\alpha - 1}l^{1-\alpha},\\&\text{(2): } y'_l = (1-\alpha)k^\alpha l^{-\alpha}
+    \end{split}
+    $$
+    $$
+    k y_k' + ly_l' = y\alpha + y(1-\alpha) = y
+    $$
+    
+
+In our case, $Y = u(c_1,...,c_n) = \sum_{i=1}^n \frac{\delta u}{\delta c_i}c_i \implies Y = \phi \sum_{i=1}^n p_i c_i = \phi \text{GDP}$.
+    
+
+Combining these together gives,
+
+$$
+\frac{d \log Y}{d \log z_i} = \frac{\phi p_iy_i}{\phi \text{GDP}} = \frac{p_i y_i}{\text{GDP}}
+$$
+
+:::{.callout-note title="Hulten's theorem"}
+All you need to know to determine the effect of shocks to $i$ is their Domar weight or share of sales in GDP.
+
+- The microeconomic details of the production structure are irrelevant.
+- Intuitively, this is because sales capture both consumption and use as an intermediate input.
+:::

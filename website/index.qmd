@@ -1,0 +1,27 @@
+---
+title: "EC334 Advanced Macroeconomics"
+---
+
+## Welcome
+
+This is a webpage where I post my notes from the course EC334 Advanced Macroeconomics at the London School of Economics. The course is taught by Maarten De Ridder and Jonathon Hazell, although these notes pertain only to the first part of the course on firm heterogeneity taught by Maarten De Ridder.
+
+## Course Contents
+
+The first half of the course explores macroeconomic implications of firm heterogeneity, covering:
+
+- [Growing Differences Between Firms](./pages/part1.qmd)
+- [Firm Heterogeneity and Market Power](./pages/part2.qmd)
+- [Productivity dispersion, concentration, oligopoly](./pages/part3.qmd)
+- [Large firms, production networks, business cycles](./pages/part4.qmd)
+- [Market power and innovation](./pages/part5.qmd)
+
+## Resources
+
+- [Course Information](https://www.lse.ac.uk/resources/calendar2024-2025/courseGuides/EC/2024_EC334.htm)
+
+---
+
+*These notes are for personal educational use and reference. For official course materials, please refer to the LSE Moodle page.*
+
+*Last updated: March 2025*

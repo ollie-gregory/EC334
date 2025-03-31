@@ -1,0 +1,243 @@
+---
+title: "Growing Differences Between Firms"
+---
+
+## What is firm heterogeneity?
+
+### What are the three main forms of heterogeneity between firms?
+
+1. Heterogeneity in firm **size.**
+    - Outputs: sale, value added, profits.
+    - Inputs: labour, capital, intermediate inputs (goods produced by other firms).
+    - Measures of size follow a Pareto distribution.
+        - Lots of small firms, fewer medium ones, and even fewer large ones.
+2. Heterogeneity in firm **activity.**
+    - Operating in different sectors and locations.
+        - Determines competitors, quality of labour inputs, infrastructure access, etc.
+3. Heterogeneity in firm **technology.**
+    - Some firms are more productive than others.
+        - Management practices, vintage capital, past innovation.
+        - Customer capital, bank relationships and equity/bond access.
+
+### What are the two main approaches to modelling firm heterogeneity?
+
+1. Lucas/Hopenhayn/Melitz approach:
+    - Firms have different idiosyncratic productivities.
+        - Peculiar things they are good at.
+    - More productive firms should be larger than unproductive firms.
+    - May not be at optimal size due to frictions (e.g. financial) $\rightarrow$ misallocation.
+        - At 50 employees or more, French firms face a lot more regulation, and so there are very few firms with 50 employees.
+2. Schumpeterian/Klette-Kortum approach:
+    - Innovating firms become market leaders, displacing others (creative destruction).
+    - Innovation is random process: no amount of investment guarantees success.
+    - Large firm: firm with history of successful (lucky) innovation.
+
+### How does the Lucas/Hopenhayn/Melitz approach work?
+  
+There are two main ingredients for heterogeneous firm $i$ operating in sector $j$.
+
+$$
+\begin{split}
+Y_{ijt} &= \textcolor{red}{A_{ijt}} F_{jt}(K_{ijt}, L_{ijt},M_{ijt}) \\
+Y_{ijt} &= \textcolor{red}{\Omega_{ijt}}\times P_{ijt}^{-\epsilon_{ijt}} \text{ where } P_{ijt} = MC_{ijt} \times \mu_{ijt}
+\end{split}
+$$
+    
+- Production function with heterogeneity in productivity through $A_{ijt}$.
+    - Factors of production are $K,L,M$ which are capital, labour and materials respectively.
+- The demand function depends on the demand shifter $\Omega_{ijt}$ and the firm’s price $P_{ijt}$.
+    - Some firms, for a given price, may have higher demand for their goods than others (represented by $\Omega$). For a given amount of inputs, people are happier with the product that you offer. An example would be Apple MacBooks; on paper they may have the same specs as other high end computers, but they have a higher demand due to customer loyalty and the brand association.
+- Productive firms have lower marginal costs and a lower price, which leads to them producing more output.
+    - However, there is some source of diminishing returns to scale, either through demand or supply.
+    - Diminishing returns to scale are assumed because if it wasn’t there, the most productive firm would dominate the market, but in reality we don’t see that.
+        - Demand: a love of variety means that consumers likely don’t want to consume just one thing.
+        - Supply: $F_{ijt}(\lambda K_{ijt}, \lambda L_{ijt}, \lambda M_{ijt}) < \lambda Y_{ijt}$.
+            - Multiplying all inputs by $\lambda$ increases the output by less than $\lambda$.
+
+## Firm heterogeneity in data
+
+### Where does heterogeneity data come from?
+
+- Most data on firm heterogeneity comes from accounting data:
+    - Flow variables such as sales, wage bill, inputs, profits come from the income statement.
+    - Stocks such as assets (for measuring capital) and debt come from the balance sheet.
+    - This is complemented with other micro data.
+        - Prices from surveys, scanner data and customs records.
+        - Employment data from tax records or social security files.
+        - Firm-to-firm transactions data from VAT registries.
+- Researchers can access this data in two ways:
+    - Tax or census offices who make data available to accredited/sworn researchers.
+    - Commercial providers who collect regulatory financial data submissions.
+
+### Analysis of stylised facts
+
+**Most economic activity comes from the largest firms.**
+    
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-20_at_10.25.50.png)
+
+- 92% of firms have less than 20 employees.
+- 10% of firms are responsible for over 80% of employment.
+- 92% of firms are responsible for only just over 11% of sales.
+
+**Firm size distribution is highly skewed and fat tailed.**
+
+- What is the cumulative distribution function of a Pareto distribution?
+    $$
+    P(X<x) \equiv F(x) = 1- \left(\frac{x}{x_m}\right)^{-\alpha}
+    $$
+    where $x_m$ is the scale parameter and $\alpha$ is the shape parameter. $\alpha$ determines how fat the tail of the distribution is.
+        
+- What is the probability density function of a Pareto distribution?
+    $$
+    P(X=x) \equiv f(x) = \frac{\alpha}{x_m}\left(\frac{x}{x_m}\right)^{-\alpha - 1}
+    $$
+    The PDF is a log-linear function meaning that if we apply a log transformation to it, it becomes a linear function.
+    
+    $$
+    \begin{split}
+    \log(f(x)) &= \log(\alpha) - \log(x_m) + (-\alpha - 1)(\log(x) - \log(x_m))\\
+    &= \log(\alpha) + \alpha \log(x_m) -(1+\alpha)\log(x)\\
+    &=\phi - (1+\alpha)\log(x) \text{ where } \phi = \log(\alpha) + \alpha \log(x_m)
+    \end{split}
+    $$
+    
+    This means that we easily estimate the parameters of our distribution using OLS.
+        
+**Estimating firm size distribution**
+
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-20_at_14.57.57.png)
+
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-20_at_14.58.15.png)
+
+Here we are regressing the log of what fraction of firms have a given number of employees on the log of the number of employees. If it is a clear linear fit, then the distribution is Pareto.
+    
+**Why is it important that the distribution of firm size is fat tailed?**
+
+- Fat tail means large firms are much more common than with a normal distribution.
+- These firms can have non-negligible effects on macroeconomy.
+    - Large firms have market power and can extract profits.
+    - Large firms may also be responsible for some business cycles.
+        - Extreme example: in 2000, Nokia caused Finnish GDP to grow by 1.6%.
+
+**Productivity is highly dispersed even among firms in narrow industries.**
+
+- Productivity heterogeneity is a potential driver of firm heterogeneity:
+    $$
+    Y_{ijt} = \textcolor{red}{A_{ijt}} \times F(K_{ijt}, L_{ijt},M_{ijt})
+    $$
+    
+- This is because more productive firms can produce higher output for the same amount of inputs.
+    - Lower marginal costs $\rightarrow$ lower prices $\rightarrow$  more demand and more inputs.
+    - This means we would expect more productive firms to be larger.
+- As firm size is so dispersed, we would therefore expect that productivity across those firms is also very dispersed.
+- How can we measure productivity?
+    To measure productivity, we have to assume a production function, in this case, cobb-douglas:
+    $$
+    y_{ijt} = a_{ijt} + \alpha^K k_{ijt} + \alpha^Ll_{ijt} + \alpha^Mm_{ijt}
+    $$
+    
+    However, we **can’t** just use OLS on this as the residual is productivity which would created omitted variable bias from being correlated with $k,l,$ and $m$. We instead have to use an instrumental variables approach.
+    
+- Productivity dispersion in data
+    ![This graph shows the yearly deviation from average TFP for both low density markets and high density markets.](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-20_at_16.12.14.png)
+
+    This graph shows the yearly deviation from average TFP for both low density markets and high density markets.
+    
+    - Firms at the 85th percentile of productivity tend to be 2 to 4 times more productive than those at the 15th percentile.
+    - This dispersion of productivity can even be seen in narrow industries (in the US).
+
+## Recent trends in firm heterogeneity
+
+### What trends can we see in the last 20 years of data on firm heterogeneity?
+
+1. Size (as measured through employment or sales) — there has been an increase in product-market concentration, ie, largest firms are getting larger.
+2. Productivity — overall productivity growth has slowed down, but the largest firms productivity growth has remained high.
+3. Profitability and market power — average markup of prices over marginal costs has increased. This has been driven by increases in markups at the highest percentiles of the distribution and coincides with a decline in the labour share of national income.
+
+### What are two measures of market concentration?
+
+1. Traditional measure: **Herfindahl-Hirschman Index (HHI).**
+    
+    $$
+    \text{HHI}_{jt} = \sum_{i \in I_j} \left(\frac{py_{ijt}}{PY_{jt}}\right)^2
+    $$
+    
+    - $0$ under perfect competition, $1$ in monopoly and convex in between.
+    - Often used in antitrust guidelines ($0.18$ FTC threshold in the US).
+    - The downside is that it requires data from all firms which may not be readily available.
+2. New common measure: **Concentration Ratio.**
+    
+    $$
+    \text{CR}_{jt}^X = \sum_{i=1}^X\left(\frac{py_{ijt}}{PY_{jt}}\right)
+    $$
+    
+    - Share of largest $X$ firms in the industry.
+    - Only requires data on the largest firms and the sector’s output.
+
+### How has market concentration changed?
+    
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_10.59.14.png)
+
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_10.59.33.png)
+
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_10.59.53.png)
+
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_11.00.41.png)
+
+Overall market concentration has increased but sales concentration rose faster than employment concentration.
+
+- Sales, $P_{ijt}\times Y_{ijt}$, can increase because of changes in output OR prices.
+    
+    $$
+    \begin{split}
+    Y_{ijt} &= \textcolor{red}{A_{ijt}}\times F(K_{ijt},L_{ijt}, M_{ijt}) \\
+    P_{ijt} &= \text{MC}_{ijt} \times \textcolor{red}{\mu_{ijt}}
+    \end{split}
+    $$
+    
+    - Firms might have an increase in sales due to being more productive, but it could also be due to them charging higher prices and having a greater markup ($\mu_{ijt}$) on their marginal costs ($\text{MC}_{ijt}$).
+    - $A_{ijt}$ represents the firm’s technology which affects how efficiently they can produce.
+    - $\mu_{ijt}$ represents their market power — firms with lots of market power can have higher markups on their marginal costs.
+
+### How has productivity changed?
+    
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.22.01.png)
+
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.22.11.png)
+
+- In the US, productivity growth has slowed since the early 2000s.
+- In France, productivity has actually been trending downwards since the 2000s.
+
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.24.49.png)
+
+- The productivity of initially more productive firms in 2000 has increased since 2000 while the least productive firms have seen no real change in productivity.
+- This could be one explanation for the increase in industry concentration.
+
+### How can we measure market power?
+    
+$$
+\mu_{ijt} = \frac{P_{ijt}}{\text{MC}_{ijt}}
+$$
+
+The markup of price over marginal cost is the purest measure of market power.
+
+- In a perfectly competitive market, the markup should be $1$.
+- A markup of more than $1$, indicates that the firm has some market power.
+    - In practice, the markup is often greater than $1$ because firms have fixed costs to cover or R&D expenses to recuperate.
+    - However, it can also be due to having greater market power through high barriers to entry for example.
+
+### How have markups changed?
+    
+![Average markup of US listed firms.](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.33.40.png)
+
+![Average markup by percentile.](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.34.18.png)
+
+- Average markups have increased a lot since the 1980s from just over 1 in 1980 to over 1.5 since 2010.
+- There has also been a large increase in markup dispersion since the 1980s, with the largest firms increasing their markup by a significant amount while the smaller firms have kept their markup broadly the same.
+    - This suggests the increase in average markup is driven by an increase in markups of the largest firms.
+
+### How has the labour share of national income changed?
+    
+![](Growing%20Differences%20Between%20Firms%20181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.36.15.png)
+
+- Despite firms charging a lot more money for their products, the share of national income that is paid in wages to workers has decreased significantly since the early 2000s.

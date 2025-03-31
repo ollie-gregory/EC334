@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Growing Differences Between Firms – Advanced Macroeconomics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+window.MathJax = {
+  tex: {
+    packages: {'[+]': ['color']}
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/part1.html">Growing Differences Between Firms</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Advanced Macroeconomics</a> 
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Growing Differences Between Firms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Firm Heterogeneity and Market Power</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Productivity Dispersion, Concentration, and Oligopoly</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Large Firms, Production Networks, and Business Cycles</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/part5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Market Power and Innovation</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-firm-heterogeneity" id="toc-what-is-firm-heterogeneity" class="nav-link active" data-scroll-target="#what-is-firm-heterogeneity">What is firm heterogeneity?</a>
+  <ul class="collapse">
+  <li><a href="#what-are-the-three-main-forms-of-heterogeneity-between-firms" id="toc-what-are-the-three-main-forms-of-heterogeneity-between-firms" class="nav-link" data-scroll-target="#what-are-the-three-main-forms-of-heterogeneity-between-firms">What are the three main forms of heterogeneity between firms?</a></li>
+  <li><a href="#what-are-the-two-main-approaches-to-modelling-firm-heterogeneity" id="toc-what-are-the-two-main-approaches-to-modelling-firm-heterogeneity" class="nav-link" data-scroll-target="#what-are-the-two-main-approaches-to-modelling-firm-heterogeneity">What are the two main approaches to modelling firm heterogeneity?</a></li>
+  <li><a href="#how-does-the-lucashopenhaynmelitz-approach-work" id="toc-how-does-the-lucashopenhaynmelitz-approach-work" class="nav-link" data-scroll-target="#how-does-the-lucashopenhaynmelitz-approach-work">How does the Lucas/Hopenhayn/Melitz approach work?</a></li>
+  </ul></li>
+  <li><a href="#firm-heterogeneity-in-data" id="toc-firm-heterogeneity-in-data" class="nav-link" data-scroll-target="#firm-heterogeneity-in-data">Firm heterogeneity in data</a>
+  <ul class="collapse">
+  <li><a href="#where-does-heterogeneity-data-come-from" id="toc-where-does-heterogeneity-data-come-from" class="nav-link" data-scroll-target="#where-does-heterogeneity-data-come-from">Where does heterogeneity data come from?</a></li>
+  <li><a href="#analysis-of-stylised-facts" id="toc-analysis-of-stylised-facts" class="nav-link" data-scroll-target="#analysis-of-stylised-facts">Analysis of stylised facts</a></li>
+  </ul></li>
+  <li><a href="#recent-trends-in-firm-heterogeneity" id="toc-recent-trends-in-firm-heterogeneity" class="nav-link" data-scroll-target="#recent-trends-in-firm-heterogeneity">Recent trends in firm heterogeneity</a>
+  <ul class="collapse">
+  <li><a href="#what-trends-can-we-see-in-the-last-20-years-of-data-on-firm-heterogeneity" id="toc-what-trends-can-we-see-in-the-last-20-years-of-data-on-firm-heterogeneity" class="nav-link" data-scroll-target="#what-trends-can-we-see-in-the-last-20-years-of-data-on-firm-heterogeneity">What trends can we see in the last 20 years of data on firm heterogeneity?</a></li>
+  <li><a href="#what-are-two-measures-of-market-concentration" id="toc-what-are-two-measures-of-market-concentration" class="nav-link" data-scroll-target="#what-are-two-measures-of-market-concentration">What are two measures of market concentration?</a></li>
+  <li><a href="#how-has-market-concentration-changed" id="toc-how-has-market-concentration-changed" class="nav-link" data-scroll-target="#how-has-market-concentration-changed">How has market concentration changed?</a></li>
+  <li><a href="#how-has-productivity-changed" id="toc-how-has-productivity-changed" class="nav-link" data-scroll-target="#how-has-productivity-changed">How has productivity changed?</a></li>
+  <li><a href="#how-can-we-measure-market-power" id="toc-how-can-we-measure-market-power" class="nav-link" data-scroll-target="#how-can-we-measure-market-power">How can we measure market power?</a></li>
+  <li><a href="#how-have-markups-changed" id="toc-how-have-markups-changed" class="nav-link" data-scroll-target="#how-have-markups-changed">How have markups changed?</a></li>
+  <li><a href="#how-has-the-labour-share-of-national-income-changed" id="toc-how-has-the-labour-share-of-national-income-changed" class="nav-link" data-scroll-target="#how-has-the-labour-share-of-national-income-changed">How has the labour share of national income changed?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Growing Differences Between Firms</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-is-firm-heterogeneity" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-firm-heterogeneity">What is firm heterogeneity?</h2>
+<section id="what-are-the-three-main-forms-of-heterogeneity-between-firms" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-the-three-main-forms-of-heterogeneity-between-firms">What are the three main forms of heterogeneity between firms?</h3>
+<ol type="1">
+<li>Heterogeneity in firm <strong>size.</strong>
+<ul>
+<li>Outputs: sale, value added, profits.</li>
+<li>Inputs: labour, capital, intermediate inputs (goods produced by other firms).</li>
+<li>Measures of size follow a Pareto distribution.
+<ul>
+<li>Lots of small firms, fewer medium ones, and even fewer large ones.</li>
+</ul></li>
+</ul></li>
+<li>Heterogeneity in firm <strong>activity.</strong>
+<ul>
+<li>Operating in different sectors and locations.
+<ul>
+<li>Determines competitors, quality of labour inputs, infrastructure access, etc.</li>
+</ul></li>
+</ul></li>
+<li>Heterogeneity in firm <strong>technology.</strong>
+<ul>
+<li>Some firms are more productive than others.
+<ul>
+<li>Management practices, vintage capital, past innovation.</li>
+<li>Customer capital, bank relationships and equity/bond access.</li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+<section id="what-are-the-two-main-approaches-to-modelling-firm-heterogeneity" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-the-two-main-approaches-to-modelling-firm-heterogeneity">What are the two main approaches to modelling firm heterogeneity?</h3>
+<ol type="1">
+<li>Lucas/Hopenhayn/Melitz approach:
+<ul>
+<li>Firms have different idiosyncratic productivities.
+<ul>
+<li>Peculiar things they are good at.</li>
+</ul></li>
+<li>More productive firms should be larger than unproductive firms.</li>
+<li>May not be at optimal size due to frictions (e.g.&nbsp;financial) <span class="math inline">\(\rightarrow\)</span> misallocation.
+<ul>
+<li>At 50 employees or more, French firms face a lot more regulation, and so there are very few firms with 50 employees.</li>
+</ul></li>
+</ul></li>
+<li>Schumpeterian/Klette-Kortum approach:
+<ul>
+<li>Innovating firms become market leaders, displacing others (creative destruction).</li>
+<li>Innovation is random process: no amount of investment guarantees success.</li>
+<li>Large firm: firm with history of successful (lucky) innovation.</li>
+</ul></li>
+</ol>
+</section>
+<section id="how-does-the-lucashopenhaynmelitz-approach-work" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-the-lucashopenhaynmelitz-approach-work">How does the Lucas/Hopenhayn/Melitz approach work?</h3>
+<p>There are two main ingredients for heterogeneous firm <span class="math inline">\(i\)</span> operating in sector <span class="math inline">\(j\)</span>.</p>
+<p><span class="math display">\[
+\begin{split}
+Y_{ijt} &amp;= \textcolor{red}{A_{ijt}} F_{jt}(K_{ijt}, L_{ijt},M_{ijt}) \\
+Y_{ijt} &amp;= \textcolor{red}{\Omega_{ijt}}\times P_{ijt}^{-\epsilon_{ijt}} \text{ where } P_{ijt} = MC_{ijt} \times \mu_{ijt}
+\end{split}
+\]</span></p>
+<ul>
+<li>Production function with heterogeneity in productivity through <span class="math inline">\(A_{ijt}\)</span>.
+<ul>
+<li>Factors of production are <span class="math inline">\(K,L,M\)</span> which are capital, labour and materials respectively.</li>
+</ul></li>
+<li>The demand function depends on the demand shifter <span class="math inline">\(\Omega_{ijt}\)</span> and the firm’s price <span class="math inline">\(P_{ijt}\)</span>.
+<ul>
+<li>Some firms, for a given price, may have higher demand for their goods than others (represented by <span class="math inline">\(\Omega\)</span>). For a given amount of inputs, people are happier with the product that you offer. An example would be Apple MacBooks; on paper they may have the same specs as other high end computers, but they have a higher demand due to customer loyalty and the brand association.</li>
+</ul></li>
+<li>Productive firms have lower marginal costs and a lower price, which leads to them producing more output.
+<ul>
+<li>However, there is some source of diminishing returns to scale, either through demand or supply.</li>
+<li>Diminishing returns to scale are assumed because if it wasn’t there, the most productive firm would dominate the market, but in reality we don’t see that.
+<ul>
+<li>Demand: a love of variety means that consumers likely don’t want to consume just one thing.</li>
+<li>Supply: <span class="math inline">\(F_{ijt}(\lambda K_{ijt}, \lambda L_{ijt}, \lambda M_{ijt}) &lt; \lambda Y_{ijt}\)</span>.
+<ul>
+<li>Multiplying all inputs by <span class="math inline">\(\lambda\)</span> increases the output by less than <span class="math inline">\(\lambda\)</span>.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="firm-heterogeneity-in-data" class="level2">
+<h2 class="anchored" data-anchor-id="firm-heterogeneity-in-data">Firm heterogeneity in data</h2>
+<section id="where-does-heterogeneity-data-come-from" class="level3">
+<h3 class="anchored" data-anchor-id="where-does-heterogeneity-data-come-from">Where does heterogeneity data come from?</h3>
+<ul>
+<li>Most data on firm heterogeneity comes from accounting data:
+<ul>
+<li>Flow variables such as sales, wage bill, inputs, profits come from the income statement.</li>
+<li>Stocks such as assets (for measuring capital) and debt come from the balance sheet.</li>
+<li>This is complemented with other micro data.
+<ul>
+<li>Prices from surveys, scanner data and customs records.</li>
+<li>Employment data from tax records or social security files.</li>
+<li>Firm-to-firm transactions data from VAT registries.</li>
+</ul></li>
+</ul></li>
+<li>Researchers can access this data in two ways:
+<ul>
+<li>Tax or census offices who make data available to accredited/sworn researchers.</li>
+<li>Commercial providers who collect regulatory financial data submissions.</li>
+</ul></li>
+</ul>
+</section>
+<section id="analysis-of-stylised-facts" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-stylised-facts">Analysis of stylised facts</h3>
+<p><strong>Most economic activity comes from the largest firms.</strong></p>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-20_at_10.25.50.png" class="img-fluid"></p>
+<ul>
+<li>92% of firms have less than 20 employees.</li>
+<li>10% of firms are responsible for over 80% of employment.</li>
+<li>92% of firms are responsible for only just over 11% of sales.</li>
+</ul>
+<p><strong>Firm size distribution is highly skewed and fat tailed.</strong></p>
+<ul>
+<li><p>What is the cumulative distribution function of a Pareto distribution? <span class="math display">\[
+  P(X&lt;x) \equiv F(x) = 1- \left(\frac{x}{x_m}\right)^{-\alpha}
+  \]</span> where <span class="math inline">\(x_m\)</span> is the scale parameter and <span class="math inline">\(\alpha\)</span> is the shape parameter. <span class="math inline">\(\alpha\)</span> determines how fat the tail of the distribution is.</p></li>
+<li><p>What is the probability density function of a Pareto distribution? <span class="math display">\[
+  P(X=x) \equiv f(x) = \frac{\alpha}{x_m}\left(\frac{x}{x_m}\right)^{-\alpha - 1}
+  \]</span> The PDF is a log-linear function meaning that if we apply a log transformation to it, it becomes a linear function.</p>
+<p><span class="math display">\[
+  \begin{split}
+  \log(f(x)) &amp;= \log(\alpha) - \log(x_m) + (-\alpha - 1)(\log(x) - \log(x_m))\\
+  &amp;= \log(\alpha) + \alpha \log(x_m) -(1+\alpha)\log(x)\\
+  &amp;=\phi - (1+\alpha)\log(x) \text{ where } \phi = \log(\alpha) + \alpha \log(x_m)
+  \end{split}
+  \]</span></p>
+<p>This means that we easily estimate the parameters of our distribution using OLS.</p></li>
+</ul>
+<p><strong>Estimating firm size distribution</strong></p>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-20_at_14.57.57.png" class="img-fluid"></p>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-20_at_14.58.15.png" class="img-fluid"></p>
+<p>Here we are regressing the log of what fraction of firms have a given number of employees on the log of the number of employees. If it is a clear linear fit, then the distribution is Pareto.</p>
+<p><strong>Why is it important that the distribution of firm size is fat tailed?</strong></p>
+<ul>
+<li>Fat tail means large firms are much more common than with a normal distribution.</li>
+<li>These firms can have non-negligible effects on macroeconomy.
+<ul>
+<li>Large firms have market power and can extract profits.</li>
+<li>Large firms may also be responsible for some business cycles.
+<ul>
+<li>Extreme example: in 2000, Nokia caused Finnish GDP to grow by 1.6%.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Productivity is highly dispersed even among firms in narrow industries.</strong></p>
+<ul>
+<li><p>Productivity heterogeneity is a potential driver of firm heterogeneity: <span class="math display">\[
+  Y_{ijt} = \textcolor{red}{A_{ijt}} \times F(K_{ijt}, L_{ijt},M_{ijt})
+  \]</span></p></li>
+<li><p>This is because more productive firms can produce higher output for the same amount of inputs.</p>
+<ul>
+<li>Lower marginal costs <span class="math inline">\(\rightarrow\)</span> lower prices <span class="math inline">\(\rightarrow\)</span> more demand and more inputs.</li>
+<li>This means we would expect more productive firms to be larger.</li>
+</ul></li>
+<li><p>As firm size is so dispersed, we would therefore expect that productivity across those firms is also very dispersed.</p></li>
+<li><p>How can we measure productivity? To measure productivity, we have to assume a production function, in this case, cobb-douglas: <span class="math display">\[
+  y_{ijt} = a_{ijt} + \alpha^K k_{ijt} + \alpha^Ll_{ijt} + \alpha^Mm_{ijt}
+  \]</span></p>
+<p>However, we <strong>can’t</strong> just use OLS on this as the residual is productivity which would created omitted variable bias from being correlated with <span class="math inline">\(k,l,\)</span> and <span class="math inline">\(m\)</span>. We instead have to use an instrumental variables approach.</p></li>
+<li><p>Productivity dispersion in data <img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-20_at_16.12.14.png" class="img-fluid" alt="This graph shows the yearly deviation from average TFP for both low density markets and high density markets."></p>
+<p>This graph shows the yearly deviation from average TFP for both low density markets and high density markets.</p>
+<ul>
+<li>Firms at the 85th percentile of productivity tend to be 2 to 4 times more productive than those at the 15th percentile.</li>
+<li>This dispersion of productivity can even be seen in narrow industries (in the US).</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="recent-trends-in-firm-heterogeneity" class="level2">
+<h2 class="anchored" data-anchor-id="recent-trends-in-firm-heterogeneity">Recent trends in firm heterogeneity</h2>
+<section id="what-trends-can-we-see-in-the-last-20-years-of-data-on-firm-heterogeneity" class="level3">
+<h3 class="anchored" data-anchor-id="what-trends-can-we-see-in-the-last-20-years-of-data-on-firm-heterogeneity">What trends can we see in the last 20 years of data on firm heterogeneity?</h3>
+<ol type="1">
+<li>Size (as measured through employment or sales) — there has been an increase in product-market concentration, ie, largest firms are getting larger.</li>
+<li>Productivity — overall productivity growth has slowed down, but the largest firms productivity growth has remained high.</li>
+<li>Profitability and market power — average markup of prices over marginal costs has increased. This has been driven by increases in markups at the highest percentiles of the distribution and coincides with a decline in the labour share of national income.</li>
+</ol>
+</section>
+<section id="what-are-two-measures-of-market-concentration" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-two-measures-of-market-concentration">What are two measures of market concentration?</h3>
+<ol type="1">
+<li><p>Traditional measure: <strong>Herfindahl-Hirschman Index (HHI).</strong></p>
+<p><span class="math display">\[
+\text{HHI}_{jt} = \sum_{i \in I_j} \left(\frac{py_{ijt}}{PY_{jt}}\right)^2
+\]</span></p>
+<ul>
+<li><span class="math inline">\(0\)</span> under perfect competition, <span class="math inline">\(1\)</span> in monopoly and convex in between.</li>
+<li>Often used in antitrust guidelines (<span class="math inline">\(0.18\)</span> FTC threshold in the US).</li>
+<li>The downside is that it requires data from all firms which may not be readily available.</li>
+</ul></li>
+<li><p>New common measure: <strong>Concentration Ratio.</strong></p>
+<p><span class="math display">\[
+\text{CR}_{jt}^X = \sum_{i=1}^X\left(\frac{py_{ijt}}{PY_{jt}}\right)
+\]</span></p>
+<ul>
+<li>Share of largest <span class="math inline">\(X\)</span> firms in the industry.</li>
+<li>Only requires data on the largest firms and the sector’s output.</li>
+</ul></li>
+</ol>
+</section>
+<section id="how-has-market-concentration-changed" class="level3">
+<h3 class="anchored" data-anchor-id="how-has-market-concentration-changed">How has market concentration changed?</h3>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_10.59.14.png" class="img-fluid"></p>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_10.59.33.png" class="img-fluid"></p>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_10.59.53.png" class="img-fluid"></p>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_11.00.41.png" class="img-fluid"></p>
+<p>Overall market concentration has increased but sales concentration rose faster than employment concentration.</p>
+<ul>
+<li><p>Sales, <span class="math inline">\(P_{ijt}\times Y_{ijt}\)</span>, can increase because of changes in output OR prices.</p>
+<p><span class="math display">\[
+  \begin{split}
+  Y_{ijt} &amp;= \textcolor{red}{A_{ijt}}\times F(K_{ijt},L_{ijt}, M_{ijt}) \\
+  P_{ijt} &amp;= \text{MC}_{ijt} \times \textcolor{red}{\mu_{ijt}}
+  \end{split}
+  \]</span></p>
+<ul>
+<li>Firms might have an increase in sales due to being more productive, but it could also be due to them charging higher prices and having a greater markup (<span class="math inline">\(\mu_{ijt}\)</span>) on their marginal costs (<span class="math inline">\(\text{MC}_{ijt}\)</span>).</li>
+<li><span class="math inline">\(A_{ijt}\)</span> represents the firm’s technology which affects how efficiently they can produce.</li>
+<li><span class="math inline">\(\mu_{ijt}\)</span> represents their market power — firms with lots of market power can have higher markups on their marginal costs.</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-has-productivity-changed" class="level3">
+<h3 class="anchored" data-anchor-id="how-has-productivity-changed">How has productivity changed?</h3>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.22.01.png" class="img-fluid"></p>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.22.11.png" class="img-fluid"></p>
+<ul>
+<li>In the US, productivity growth has slowed since the early 2000s.</li>
+<li>In France, productivity has actually been trending downwards since the 2000s.</li>
+</ul>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.24.49.png" class="img-fluid"></p>
+<ul>
+<li>The productivity of initially more productive firms in 2000 has increased since 2000 while the least productive firms have seen no real change in productivity.</li>
+<li>This could be one explanation for the increase in industry concentration.</li>
+</ul>
+</section>
+<section id="how-can-we-measure-market-power" class="level3">
+<h3 class="anchored" data-anchor-id="how-can-we-measure-market-power">How can we measure market power?</h3>
+<p><span class="math display">\[
+\mu_{ijt} = \frac{P_{ijt}}{\text{MC}_{ijt}}
+\]</span></p>
+<p>The markup of price over marginal cost is the purest measure of market power.</p>
+<ul>
+<li>In a perfectly competitive market, the markup should be <span class="math inline">\(1\)</span>.</li>
+<li>A markup of more than <span class="math inline">\(1\)</span>, indicates that the firm has some market power.
+<ul>
+<li>In practice, the markup is often greater than <span class="math inline">\(1\)</span> because firms have fixed costs to cover or R&amp;D expenses to recuperate.</li>
+<li>However, it can also be due to having greater market power through high barriers to entry for example.</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-have-markups-changed" class="level3">
+<h3 class="anchored" data-anchor-id="how-have-markups-changed">How have markups changed?</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.33.40.png" class="img-fluid figure-img"></p>
+<figcaption>Average markup of US listed firms.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.34.18.png" class="img-fluid figure-img"></p>
+<figcaption>Average markup by percentile.</figcaption>
+</figure>
+</div>
+<ul>
+<li>Average markups have increased a lot since the 1980s from just over 1 in 1980 to over 1.5 since 2010.</li>
+<li>There has also been a large increase in markup dispersion since the 1980s, with the largest firms increasing their markup by a significant amount while the smaller firms have kept their markup broadly the same.
+<ul>
+<li>This suggests the increase in average markup is driven by an increase in markups of the largest firms.</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-has-the-labour-share-of-national-income-changed" class="level3">
+<h3 class="anchored" data-anchor-id="how-has-the-labour-share-of-national-income-changed">How has the labour share of national income changed?</h3>
+<p><img src="Growing Differences Between Firms 181a84b4cffb80c5b995d3248a23c5b3/Screenshot_2025-01-21_at_13.36.15.png" class="img-fluid"></p>
+<ul>
+<li>Despite firms charging a lot more money for their products, the share of national income that is paid in wages to workers has decreased significantly since the early 2000s.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

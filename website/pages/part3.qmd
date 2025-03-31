@@ -1,0 +1,359 @@
+---
+title: Productivity dispersion, concentration, oligopoly
+---
+
+## How do you measure markups?
+
+### Why is measuring firm markups difficult?
+    
+Firm level datasets are based on accounting data.
+
+- Markups are the ratio of prices to marginal cost and accounting data does not contain either of them.
+    - We don’t directly observe marginal cost or prices.
+- This means at the firm level we need an estimator to obtain markups.
+    - At the aggregate level, we can infer markups from the labour share for example.
+    
+::: {.callout-tip}
+This means we need an estimator to obtain the markup.
+:::
+    
+### How does the Hall (1988) markup estimator work?
+    
+The production function approach to markup estimation.
+
+Assume that all firms have the following production function:
+
+$$
+Y_{it} = A_{it}K_{it}^{\alpha_k}L_{it}^{\alpha_l}M_{it}^{\alpha_m}
+$$
+
+For a given output level, the firm’s objective is to minimise their costs, subject to a given production level, by choosing their mix of factor inputs:
+
+$$
+\text{TC}_{it} = R_tK_{it} + W_tL_{it}+P_t^mM_{it}
+$$
+
+$$
+\mathcal{L}=R_tK_{it} + W_tL_{it}+P_t^mM_{it} - \lambda_{it}[A_{it}K_{it}^{\alpha_k}L_{it}^{\alpha_l}M_{it}^{\alpha_m}-Y_{it}]
+$$
+
+- $\lambda_{it}$ is the marginal cost of production.
+
+We assume that firms choose $M_{it}$ each period without adjustment costs.
+
+- This is because it is easy for firms to adjust the amount of materials they purchase, but not easy to adjust labour or capital.
+- What is the optimisation?
+    
+    $$
+    \left.\frac{\delta\mathcal{L}}{\delta M_{it}}\right |_{M^*} = P_t^m - \lambda_{it}A_{it}K_{it}^{\alpha_k}L_{it}^{\alpha_l}m_{it}^{\alpha_m- 1}\alpha_m = 0\\
+    $$
+    $$
+    P_t^m = \lambda_{it}\alpha_m\left(\frac{Y_{it}}{M_{it}}\right)\\
+    $$
+    $$
+    \frac{P_{it}}{\lambda_{it}} = \alpha_m\left(\frac{P_{it}Y_{it}}{P_t^mM_{it}}\right) = \mu_{it}
+    $$
+    
+    - $P_{it}Y_{it}$ is total firm revenue and $P_t^m M_{it}$ is total spending on goods from other firms.
+        - These are both things that we can get from the income statement.
+    - The only thing we don’t know is the output elasticity $\alpha_m$.
+
+### How can we use the estimator?
+
+- What are the different stages?
+    1. Use revenue and costs data from accounting data.
+        - Assume that cost of goods sold is chosen without adjustment costs.
+        - Use sector deflated sales to measure output.
+    2. Estimate the production function of firms to obtain $\alpha_m$.
+        - Controlling for other inputs: capital, sales, general administrative expenses.
+    3. Assume firms within broad industries have the same $\alpha_m$.
+- What is the estimation process?
+    
+    Assume that the log of productivity is a linear first-order autoregressive process:
+    
+    $$
+    y_{it} = {a}_{it}+\alpha_k k_{it} + \alpha_l l_{it} + \alpha_m m_{it}
+    $$
+    $$
+    a_{it} = \rho a_{it-1} + \eta_{it}
+    $$
+    
+    - We can’t just run OLS on the first equation as we have correlation between the error term, which is productivity, and the regressors. This means we need an identification assumption.
+        - Highly productive firms will naturally produce more and therefore use more inputs than low productivity firms.
+    
+    The identification assumption is that firms don’t know $\eta_{it}$ at time $t-1$.
+    
+    - This means that $k_{it-1}, l_{it-1}, m_{it-1}$ should be uncorrelated with $\eta_{it}$, as firms don’t know yet what the shock to productivity is going to be.
+    - How can we arrive at our estimates?
+        1. Guess values for $\alpha_k, \alpha_l,\alpha_m$.
+        2. Calculate productivity using these guesses:
+            
+            $$
+            a_{it} = y_{it} - \alpha_kk_{it} - \alpha_l l_{it} - \alpha_m m_{it}
+            $$
+            
+        3. Regress $a_{it} = \rho a_{it-1} + \eta_{it}$ to find $\rho$ and $\eta_{it}$.
+        4. Update the guesses until $\eta_{it}$ is not correlated with $k_{it-1}, l_{it-1}, m_{it-1}$.
+    
+    ![](Productivity%20dispersion,%20concentration,%20oligopoly%2018fa84b4cffb8049943bfe2c18817fd5/Screenshot_2025-02-07_at_10.13.25.png)
+    
+
+## Oligopoly: Atkeson and Burstein (2008)
+
+### How does the Atkeson and Burstein model alter the Dixit-Stiglitz model?
+    
+The Dixit-Stiglitz model focussed on product differentiation as the main source of market power. The Atkeson and Burstein model focusses on markets being sufficiently small for firms to interact strategically as the main source of market power.
+
+:::{.callout-tip}
+Some firms compete very closely, for example, Itsu and Wasabi on High Holborn. Conversely, other firms don’t really compete at all, for example, Itsu in High Holborn, and the Ford dealership in Ashford.
+:::
+
+- There are many sectors in the economy (products, locations, etc).
+- It is very difficult to substitute goods across sectors.
+- Within sectors, a small number of closer substitute firms compete.
+- What are the consequences of these alterations?
+    - Large firms will have less competition and therefore higher markups.
+    - Markups increase convexly in market share.
+    - Productivity dispersion causes an increase in average markup and markup dispersion.
+
+### What is the model environment?
+
+- Aggregate consumption $C$ is a Dixit-Stiglitz basket of many **sectors**.
+    
+    $$
+    C = \left[\int_0^1 C_j^{\frac{\epsilon - 1}{\epsilon}} dj\right]^{\frac{\epsilon}{\epsilon -1}}
+    $$
+    
+- Demand for sector $j$’s output depends on the price index:
+    
+    $$
+    C_j = P_j^{-\epsilon}Y
+    $$
+    
+- A sector’s output is produced by $N_j$ firms $i$:
+    
+    $$
+    C_j = \left[\sum_{i=1}^{N_j}C_{ij}^{\frac{\sigma - 1}{\sigma}}dj\right]^{\frac{\sigma}{\sigma - 1}}
+    $$
+    
+:::{.callout-tip}
+Key assumption is that $\sigma > \epsilon$: meaning that goods are more similar within sectors than across sectors.
+:::
+        
+### What is the household optimisation problem?
+    
+$$
+\mathcal{L} = \sum_{i=1}^{N_j}(P_{ij} \times C_{ij}) - \lambda\left( \left[ \sum_{i = 1}^{N_j} C_{ij}^{\frac{\sigma - 1}{\sigma}} di\right]^{\frac{\sigma}{\sigma - 1}} - C_j\right)
+$$
+
+The first order condition with respect to $C_i$ is,
+
+$$
+\begin{split}
+\left.\frac{\delta\mathcal{L}}{\delta C_i}\right|_{C_i^*} &= P_{ij} - \lambda \frac{\sigma}{\sigma - 1} \left[ \sum_{i = 1}^{N_j} C_{ij}^{\frac{\sigma - 1}{\sigma}} di\right]^{\frac{\sigma}{\sigma - 1} -1} \frac{\sigma - 1}{\sigma} C_{ij}^{\frac{\sigma - 1}{\sigma} - 1} = 0\\
+P_{ij} &= \lambda \left[ \sum_{i = 1}^{N_j} C_{ij}^{\frac{\sigma - 1}{\sigma}} di\right]^{\frac{1}{\sigma - 1}} C_{ij}^{-\frac{1}{\sigma}}\\
+P_{ij}^{-\sigma} &=\lambda^{-\sigma}C_j^{-1}C_{ij}\\
+C_{ij}&=\lambda^\sigma P_{ij}^{-\sigma}C_j
+\end{split}
+$$
+
+To get rid of the Lagrange multiplier, we can use the relative demand between two goods:
+
+$$
+\frac{C_{ij}}{C_1} = \frac{\lambda^\sigma P_{ij}^{-\sigma}C_j}{\lambda^\sigma P_{1}^{-\sigma}C_j} \implies \frac{C_{ij}}{C_1} = \left(\frac{P_{ij}}{P_1}\right)^{-\sigma}
+$$
+
+Therefore the relative demand between two goods is determined by the price ratio and how similar they are.
+
+Inserting this into the customers total spending on consumption baskets for that sector:
+
+$$
+\sum_{i=1}^{N_j}P_{ij}C_{ij}di = \sum_{i=1}^{N_j} P_{ij} C_1\left(\frac{P_{ij}}{P_1}\right)^{-\sigma}\\
+\implies C_1 = P_1^{-\sigma}\left(
+\frac{\sum_{i=1}^{N_j} P_{ij}C_{ij}}{\sum_{i=1}^{N_j} P_{ij}^{1-\sigma}}
+\right)
+$$
+
+Using the definition of the sector price index $P_j$,
+
+$$
+P_j \equiv \frac{\sum_{i=1}^{N_j} P_{ij}C_{ij}}{C_j}
+$$
+    
+### What is the firm optimisation problem?
+    
+Firms have constant marginal costs $\text{MC}_{ij}$ such that profits are,
+
+$$
+\pi_{ij} = (P_{ij} - \text{MC}_{ij})C_{ij}
+$$
+
+Firms want to maximise their profits by setting their price. $C_{ij}$ is a function of $P_{ij}$.
+
+$$
+\begin{split}
+\left .\frac{\delta \pi_{ij}}{\delta P_{ij}}\right|_{P_{ij}^*} &= C_{ij} + P_{ij} \frac{\delta C_{ij}}{\delta P_{ij}} - \text{MC}_{ij} \frac{\delta C_{ij}}{\delta P_{ij}} = 0 \text{ }\textcolor{red}{(\times P_{ij}, \div C_{ij})}\\
+&\implies P_{ij} + P_{ij}\frac{P_{ij}}{C_{ij}}\frac{\delta C_{ij}}{\delta P_{ij}} - \text{MC}_{ij}\frac{P_{ij}}{C_{ij}}\frac{\delta C_{ij}}{\delta P_{ij}} = 0\\
+&\implies P_{ij} = \text{MC}_{ij}\left(\frac{\frac{P_{ij}}{C_{ij}}\frac{\delta C_{ij}}{\delta P_{ij}}}{1+\frac{P_{ij}}{C_{ij}}\frac{\delta C_{ij}}{\delta P_{ij}}}\right) = \text{MC}_{ij} \left(\frac{-\varepsilon_{ij}}{1 - \varepsilon_{ij}}\right)
+\end{split}
+$$
+
+This gives the famous oligopoly result,
+
+$$
+P_{ij} =\text{MC}_{ij}\left(\frac{\varepsilon_{ij}}{\varepsilon_{ij}-1}\right)
+$$
+
+$-\varepsilon_{ij}$ is the price elasticity of demand.
+
+- What is the markup determined by in this model?
+    
+    The markup $\mu_{ij}$ is now determined by the price elasticity of demand.
+    
+    $$
+    \mu_{ij} = \left(\frac{\varepsilon_{ij}}{\varepsilon_{ij}-1}\right)
+    $$
+    
+    - In last week’s model, the epsilon was constant, but here, the price elasticity of demand varies across firms.
+        - Some firms will have a low PED and therefore a high markup meaning that it is hard for the household to substitute away from their goods, so firms can cahrge higher prices.
+
+## Concentration and Markup
+
+To determine the markup, we have to know what the price elasticity of demand is.
+
+$$
+\mu_{ij} = \left(\frac{\varepsilon_{ij}}{\varepsilon_{ij}-1}\right)
+$$
+
+### What determines the price elasticity of demand?
+    
+The main insights of the Atkeson and Burstein model are,
+
+- Larger firms have lower price elasticity of demand $\varepsilon_{ij}$.
+    - This is caused by the effect of a large firm’s price increases on the sector price index.
+    - If a monopolist raises prices, households can only substitute away to other sectors.
+
+### How can we determine the markup?
+    
+**Step 1 — Find firm demand as a function of prices.**
+
+The firm and sector demand functions are,
+
+$$
+C_{ij} = \left(\frac{P_{ij}}{P_j}\right)^{-\sigma}Y_j \text{ and }Y_j = P_j^{-\epsilon}C
+$$
+
+- For example, the first function is the demand for Itsu sushi on High Holborn, while the second function is the total demand for sushi on High Holborn.
+
+We can combine these two functions to get a demand function for ‘Itsu’ sushi (firm demand) in terms of total consumption $C$ and the firm and sector prices.
+
+$$
+\begin{split}
+C_{ij} &= \left(\frac{P_{ij}}{P_j}\right)^{-\sigma}P_j^{-\epsilon}C\\
+C_{ij} &= P_{ij}^{-\sigma}P_j^{\sigma - \epsilon}C
+\end{split}
+$$
+
+**Step 2 — Take logs and derivatives to get price elasticity of demand.**
+
+In order to calculate the price elasticity, we need to take the $\log$ of the function above and then take the derivative with respect to price.
+
+$$
+\ln C_{ij} = -\sigma\ln(P_{ij}) + (\sigma - \epsilon)\ln(P_j) + \ln (C)
+$$
+$$
+\frac{\delta \ln(C_{ij})}{\delta \ln(P_{ij})} = -\sigma + (\sigma - \epsilon)\frac{\delta \ln(P_j)}{\delta \ln(P_{ij})}
+$$
+
+**Step 3 — Calculate $\frac{\delta \ln(P_j)}{\delta \ln(P_{ij})}$.**
+
+Because there are only a few firms in each sector, the sector’s price index depends on $P_{ij}$.
+
+$$
+P_j = \left[\sum_{i=1}^{N_j} P_{ij}^{1-\sigma}\right]^{\frac{1}{1-\sigma}}\\
+$$
+$$
+\ln P_j = \frac{1}{1-\sigma} \ln \left[\sum_{i=1}^{N_j} P_{ij}^{1-\sigma}\right]\\
+$$
+$$
+\begin{split}
+\frac{\delta \ln(P_j)}{\delta \ln(P_{ij})} &= \left(\frac{1}{1-\sigma}\right)\frac{1}{\sum_{i=1}^{N_j} P_{ij}^{1-\sigma}} \frac{\delta P_{ij}^{1-\sigma}}{\delta \ln(P_{ij})}\\
+&= \left(\frac{1}{1-\sigma}\right)\frac{1}{P_j^{1-\sigma}}P_{ij}^{-\sigma} (1-\sigma)P_{ij}\\
+&= \frac{P_{ij}^{1-\sigma}}{P_j^{1-\sigma}}
+\end{split}
+$$
+
+- What two things does the second to last line use?
+    
+    The first part comes from the price index equation:
+    
+    $$
+    P_j = \left[\sum_{i=1}^{N_j} P_{ij}^{1-\sigma}\right]^{\frac{1}{1-\sigma}} \implies \sum_{i=1}^{N_j} P_{ij}^{1-\sigma} = P_j^{1-\sigma}
+    $$
+    
+    The second part uses the a $\log$ derivative rule:
+    
+    $$
+    \frac{\delta f(x)}{\delta \ln(x)} = \frac{\delta f(x)}{\delta x} \cdot x
+    $$
+    
+
+**Step 4 — Show that $\frac{P_{ij}^{1-\sigma}}{P_j^{1-\sigma}}$ is equal to the firm’s market share.**
+
+$$
+\text{Firm revenue} = P_{ij}C_{ij} = P_{ij}^{1-\sigma}P_j^{\sigma - \epsilon}C\\
+$$
+$$
+\text{Sector revenue} = P_jC_j = P_j^{1-\epsilon}C\\
+$$
+$$
+\text{Market share} = S_{ij} = \frac{P_{ij}C_{ij}}{P_jC_j} = \frac{P_{ij}^{1-\sigma}P_j^{\sigma - \epsilon}C}{P_j^{1-\epsilon}C} = \frac{P_{ij}^{1-\sigma}}{P_j^{1-\sigma}}
+$$
+
+We can insert this into the price elasticity equation,
+
+$$
+\frac{\delta \ln(C_{ij})}{\delta \ln(P_{ij})} = -\sigma + (\sigma - \epsilon)S_{ij}
+$$
+$$
+-\varepsilon_{ij} = -\sigma + (\sigma - \epsilon)S_{ij}
+$$
+$$
+\varepsilon_{ij} = \sigma(1-S_{ij}) + \epsilon S_{ij}
+$$
+    
+### What happens if you are an infinitesimal firm?
+    
+$$
+S_ij \to 0 \implies \varepsilon_{ij} = \sigma(1-S_{ij}) + \epsilon S_{ij} \to \sigma
+$$
+$$
+\implies P_{ij} =\text{MC}_{ij} \left(\frac{\sigma}{\sigma - 1}\right)
+$$
+
+- This shows that very small firms compete within their own sector.
+
+### What happens if you are a monopolist?
+    
+$$
+S_{ij} \to 1 \implies \varepsilon_{ij} = \sigma(1-S_{ij}) + \epsilon S_{ij} \to \epsilon
+$$
+$$
+\implies P_{ij} = \text{MC}_{ij}\left(\frac{\epsilon}{\epsilon - 1}\right)
+$$
+
+- This shows that very large firms compete more across sectors.
+
+### How does the markup increase with market share?
+    
+A standard calibration of parameters sets $\sigma = 10$ and $\epsilon = 1.1$.
+
+![](Productivity%20dispersion,%20concentration,%20oligopoly%2018fa84b4cffb8049943bfe2c18817fd5/markup_vs_market_share.png)
+
+- This shows markups increasing convexly with market share meaning that as market share approaches 100%, markups increase faster and faster.
+
+### Can the model explain the trends we see in the data?
+
+- The model can show a rise in markups over time.
+- The model can also show a rise in markup dispersion over time.
+- Finally, the model can explain that if productivity differences cause an increase in concentration, markups and markup dispersion increase endogenously.
